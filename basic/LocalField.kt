@@ -26,12 +26,15 @@ fun main() {
     println("update intLocalField:[$intLocalField]")
     println("update intTypeInference:[$intTypeInference]")
 
-    //代入不可
+    // 代入不可
     val valString = "ABC"
     val valInt = 1
     println("valString:[$valString]")
     println("valInt:[$valInt]")
 
+    // 代入不可の値変更(エラー)
+    //valString = "ABC" //Val cannot be reassigned
+    //valInt = 1        //Val cannot be reassigned
 }
 
 // 出力：
