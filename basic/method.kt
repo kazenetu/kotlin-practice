@@ -31,6 +31,16 @@ fun multiplication(a: Int,b: Int) = a * b
 fun length(src: String?) = src?.count() ?: 0
 
 /*
+ * パラメータが文字列であるか確認
+ */
+fun isString(src: Any) = if(src is String) true else false
+
+/*
+ * パラメータが数値であるか確認
+ */
+fun isInt(src: Any) = src is Int
+
+/*
  * メソッド実行
  */
 fun main() {
@@ -48,6 +58,16 @@ fun main() {
     println("----length---")
     println(length("ABC"))
     println(length(null))
+
+    // パラメータが文字列か確認
+    println("----isString---")
+    println(isString("ABC"))
+    println(isString(1))
+
+    // パラメータが数値か確認
+    println("----isInt---")
+    println(isInt("ABC"))
+    println(isInt(1))
 }
 
 // 出力：
@@ -60,3 +80,9 @@ fun main() {
 // ----length---
 // 3
 // 0
+// ----isString---
+// true
+// false
+// ----isInt---
+// false
+// true
