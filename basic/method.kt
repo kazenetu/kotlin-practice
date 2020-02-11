@@ -41,6 +41,13 @@ fun isString(src: Any) = if(src is String) true else false
 fun isInt(src: Any) = src is Int
 
 /*
+ * デフォルトパラメータ
+ */
+fun defaultArg(name: String = "noname") {
+    println("Hello, $name!")
+}
+
+/*
  * メソッド実行
  */
 fun main() {
@@ -68,6 +75,11 @@ fun main() {
     println("----isInt---")
     println(isInt("ABC"))
     println(isInt(1))
+
+    // デフォルトパラメータ
+    println("----defaultArg---")
+    defaultArg("kotlin")
+    defaultArg()
 }
 
 // 出力：
@@ -86,3 +98,6 @@ fun main() {
 // ----isInt---
 // false
 // true
+// ----defaultArg---
+// Hello, kotlin!
+// Hello, noname!
