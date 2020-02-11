@@ -93,6 +93,11 @@ fun main() {
     defaultArgs()
     defaultArgs("Thanks","kotlin")
     defaultArgs(name = "kotlin")
+
+    // ローカルメソッド
+    println("----localMethod---")
+    fun localMethod() = "localMethod"
+    println(localMethod())
 }
 
 // 出力：
@@ -114,3 +119,5 @@ fun main() {
 // ----defaultArg---
 // Hello, kotlin!
 // Hello, noname!
+// ----localMethod---
+// localMethod
