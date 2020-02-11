@@ -48,6 +48,13 @@ fun defaultArg(name: String = "noname") {
 }
 
 /*
+ * 複数のデフォルトパラメータ
+ */
+fun defaultArgs(greeting:String = "Hello", name: String = "noname") {
+    println("$greeting, $name!")
+}
+
+/*
  * メソッド実行
  */
 fun main() {
@@ -80,6 +87,12 @@ fun main() {
     println("----defaultArg---")
     defaultArg("kotlin")
     defaultArg()
+
+    // 複数のデフォルトパラメータ
+    println("----defaultArgs---")
+    defaultArgs()
+    defaultArgs("Thanks","kotlin")
+    defaultArgs(name = "kotlin")
 }
 
 // 出力：
