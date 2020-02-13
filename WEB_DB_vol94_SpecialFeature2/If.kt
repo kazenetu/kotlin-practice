@@ -31,6 +31,12 @@ fun main() {
         println("$localInt <= 5")
     }
 
+    // ローカルフィールドにif式を設定
+    println("----set if statement---")
+    val localAny = localInt as Any
+    val isString = if(localAny is String) true else false
+    println(isString)
+
     // メソッド呼び出し
     println("----call method1---")
     println(moreThan5(6))
@@ -45,6 +51,8 @@ fun main() {
 // 出力：
 // ----Local if statement---
 // 10 > 5
+// ----set if statement---
+// false
 // ----call method1---
 // 6 > 5
 // 5 <= 5
