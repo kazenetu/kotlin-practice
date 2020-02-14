@@ -22,6 +22,18 @@ fun main() {
         itemTotal += items[index]
     }
     println("total $itemTotal")
+
+    // for構文：範囲
+    println("----for statement range---")
+    for(value in 1..4) {
+        println("item is $value")
+    }
+
+    // for構文：範囲 step
+    println("----for statement range step 2---")
+    for(value in 1..4 step 2) {
+        println("item is $value")
+    }
 }
 
 // 出力：
@@ -37,3 +49,11 @@ fun main() {
 // items[2] is 3
 // items[3] is 4
 // total 10
+// ----for statement range---
+// item is 1
+// item is 2
+// item is 3
+// item is 4
+// ----for statement range step 2---
+// item is 1
+// item is 3
