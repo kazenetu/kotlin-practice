@@ -23,6 +23,15 @@ fun main() {
     }
     println("total $itemTotal")
 
+    // for構文：インデックス step 3
+    println("----for statement index step 3---")
+    itemTotal = 0
+    for(index in items.indices step 3) {
+        println("items[$index] is ${items[index]}")
+        itemTotal += items[index]
+    }
+    println("total $itemTotal")
+
     // for構文：範囲
     println("----for statement range---")
     for(value in 1..4) {
@@ -49,6 +58,10 @@ fun main() {
 // items[2] is 3
 // items[3] is 4
 // total 10
+// ----for statement index step 3---
+// items[0] is 1
+// items[3] is 4
+// total 5
 // ----for statement range---
 // item is 1
 // item is 2
