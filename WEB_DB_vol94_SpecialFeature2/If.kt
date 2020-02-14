@@ -37,6 +37,22 @@ fun main() {
     val isString = if(localAny is String) true else false
     println(isString)
 
+    // 範囲指定
+    println("----if range statement ---")
+    val value = 5
+    val checkStartValue = 1
+    val checkEndValue = 5
+    if(value in checkStartValue..checkEndValue) {
+        println("hit $value!")
+    }
+
+    // 範囲指定 否定
+    println("----if range statement not in---")
+    if(value !in 6..10) {
+        println("not hit $value!")
+    }
+
+
     // メソッド呼び出し
     println("----call method1---")
     println(moreThan5(6))
@@ -53,6 +69,10 @@ fun main() {
 // 10 > 5
 // ----set if statement---
 // false
+// ----if range statement ---
+// hit 5!
+// ----if range statement not in---
+// not hit 5!
 // ----call method1---
 // 6 > 5
 // 5 <= 5
