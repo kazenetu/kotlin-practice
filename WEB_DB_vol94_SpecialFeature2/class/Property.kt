@@ -38,6 +38,22 @@ class PropertyTestClass(age: Int) {
 }
 
 /*
+ * プロパティ定義と同時に初期化
+ */
+class InitializeProperty(age: Int) {
+    // パラメータをそのまま初期値とする
+    var age = age
+
+    /*
+     * 年齢の文字列:アクセサ設定(呼び出しのたびに再評価)
+     */
+    val ageString: String
+        get() {
+            return "age is $age"
+        }
+}
+
+/*
  * パラメータでプロパティ定義
  */
 class ParamPropertyClass(var age: Int) {
@@ -66,6 +82,15 @@ fun main() {
     println(prop.ageString)
     println(prop.ageStringFixed)
 
+    // プロパティ宣言と初期化を同時に実行
+    println("----InitializeProperty---")
+    val initProp = InitializeProperty(20)
+    println(initProp.ageString)
+
+    println("----update initProp.age---")
+    initProp.age = 30
+    println(initProp.ageString)
+
     // パラメータでプロパティ定義
     println("----ParamPropertyClass---")
     val paramProp = ParamPropertyClass(20)
@@ -87,6 +112,10 @@ fun main() {
 // >> return 30
 // age is 30
 // age is 20
+// ----InitializeProperty---
+// age is 20
+// ----update initProp.age---
+// age is 30
 // ----ParamPropertyClass---
 // age is 20
 // ----update paramProp.age---
