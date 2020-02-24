@@ -7,10 +7,21 @@ interface Callback {
 
 /*
  * コールバック用インターフェイスをパラメータとするクラス
+ * コールバック用プロパティを公開したバージョン
  */
-class TestClass(val callback: Callback) {
+class TestClassA(val callback: Callback) {
     init {
-        callback.onCallbask("Test")
+        callback.onCallbask("TestA")
+    }
+}
+
+/*
+ * コールバック用インターフェイスをパラメータとするクラス
+ * コールバック用プロパティの非公開バージョン
+ */
+class TestClassB(private val callback: Callback) {
+    init {
+        callback.onCallbask("TestB")
     }
 }
 
@@ -18,15 +29,30 @@ class TestClass(val callback: Callback) {
  * エントリポイント
  */
 fun main() {
-    // テストクラスを呼び出し
-    println("----Call TestClass---")
-    TestClass(object:Callback {
+    // テストクラスAを呼び出し
+    println("----Call TestClassA---")
+    val testA = TestClassA(object:Callback {
         override fun onCallbask(text: String) {
             println("onCallbask is $text")
         }
     })
+    // TestClassAのプロパティのスコープがpublicのため、外部から呼び出し可能
+    testA.callback.onCallbask("aaa")
+
+    // テストクラスBを呼び出し
+    println("----Call TestClassB---")
+    val testB = TestClassB(object:Callback {
+        override fun onCallbask(text: String) {
+            println("onCallbask is $text")
+        }
+    })
+    // TestClassAのプロパティのスコープがprivateのため、外部から呼び出し不可
+    //testB.callback.onCallbask("aaa")
 }
 
 // 出力：
-// ----Call TestClass---
-// onCallbask is Test
+// ----Call TestClassA---
+// onCallbask is TestA
+// onCallbask is aaa
+// ----Call TestClassB---
+// onCallbask is TestB
