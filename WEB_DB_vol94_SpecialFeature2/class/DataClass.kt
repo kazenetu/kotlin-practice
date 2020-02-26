@@ -43,6 +43,10 @@ fun main() {
     println("dataClassInheritInterface == DataClassInheritInterface(\"DEF\", 100): ${dataClassInheritInterface == DataClassInheritInterface("DEF", 100)}")
     println("dataClassInheritInterface == DataClassInheritInterface(\"ABC\", 100): ${dataClassInheritInterface == DataClassInheritInterface("ABC", 100)}")
 
+    // 分解宣言
+    println("----Destructuring Declarations---")
+    val (name, age) = dataClassInheritInterface
+    println("$name,$age")
 }
 
 // 出力：
@@ -54,3 +58,5 @@ fun main() {
 // DataClassInheritInterface(name=DEF, age=100), DEF,100
 // dataClassInheritInterface == DataClassInheritInterface("DEF", 100): true
 // dataClassInheritInterface == DataClassInheritInterface("ABC", 100): false
+// ----Destructuring Declarations---
+// DEF,100
