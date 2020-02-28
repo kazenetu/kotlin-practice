@@ -26,6 +26,32 @@ class GenericsClass<T>(var item: T) {
 
 
 /*
+ * 上限制約用インターフェイス
+ */
+interface Param {
+    val text: String
+}
+
+/*
+ * クラスの型パラメータ：上限制約
+ */
+class ParamClass<T>(private val item: T): Param {
+    override val text: String
+        get() {
+            return "$item"
+        }
+}
+
+/*
+ * クラスの型パラメータ:インターフェイスで上限制約
+ */
+class GenericsClassParam<T : Param>(private val item: T) 
+{
+    fun getText() = item.text
+}
+
+
+/*
  * エントリポイント
  */
 fun main() {
@@ -56,6 +82,11 @@ fun main() {
     println("genericsClassCopyString == genericsClassString: ${genericsClassCopyString == genericsClassString}")
     println("genericsClassCreateString == genericsClassString: ${genericsClassCreateString == genericsClassString}")
 
+    // インターフェイスを上限制約：Stringを指定
+    println("----GenericsClassParam---")
+    val genericsClassParam = GenericsClassParam(ParamClass("AAA"))
+    println("genericsClassParam.text:${genericsClassParam.getText()}")
+
 }
 
 // 出力：
@@ -73,3 +104,5 @@ fun main() {
 // changed genericsClassCopy.item! genericsClassString.item:ABC
 // genericsClassCopyString == genericsClassString: false
 // genericsClassCreateString == genericsClassString: false
+// ----GenericsClassParam---
+// genericsClassParam.text:AAA
