@@ -24,6 +24,7 @@ class GenericsClass<T>(var item: T) {
     } 
 }
 
+//-------------------------
 /*
  * 上限制約用インターフェイス
  */
@@ -49,6 +50,7 @@ class GenericsClassParam<T:Param>(val item: T)
     fun getText() = item.text
 }
 
+//-------------------------
 /*
  * 複数の上限制約用インターフェイス：型タイプ
  */
@@ -85,7 +87,7 @@ class GenericsClassWhere<T>(val item: T)
 {
     fun getText() = "${item.type}:${item.value}"
 }
-
+//-------------------------
 
 /*
  * エントリポイント
