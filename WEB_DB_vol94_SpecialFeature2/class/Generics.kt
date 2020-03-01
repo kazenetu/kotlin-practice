@@ -24,7 +24,6 @@ class GenericsClass<T>(var item: T) {
     } 
 }
 
-
 /*
  * 上限制約用インターフェイス
  */
@@ -45,9 +44,46 @@ class ParamClass<T>(private val item: T): Param {
 /*
  * クラスの型パラメータ:インターフェイスで上限制約
  */
-class GenericsClassParam<T : Param>(private val item: T) 
+class GenericsClassParam<T:Param>(val item: T) 
 {
     fun getText() = item.text
+}
+
+/*
+ * 複数の上限制約用インターフェイス：型タイプ
+ */
+interface ItemType {
+    val type: String
+}
+
+/*
+ * 複数の上限制約用インターフェイス：値
+ */
+interface ItemValue {
+    val value: Any
+}
+
+/*
+ * 複数の上限制約用クラスInt
+ */
+class IntClass(override val value:Int): ItemType, ItemValue {
+    override val type: String = "Int"
+}
+
+/*
+ * 複数の上限制約用クラスString
+ */
+class StringClass(override val value:String): ItemType, ItemValue {
+    override val type: String = "String"
+}
+
+/*
+ * クラスの型パラメータ:複数の上限制約
+ */
+class GenericsClassWhere<T>(val item: T) 
+	where T:ItemType,T:ItemValue
+{
+    fun getText() = "${item.type}:${item.value}"
 }
 
 
@@ -87,6 +123,13 @@ fun main() {
     val genericsClassParam = GenericsClassParam(ParamClass("AAA"))
     println("genericsClassParam.text:${genericsClassParam.getText()}")
 
+    // 複数の上限制約
+    println("----GenericsClassWhere---")
+    val genericsClassWhere = GenericsClassWhere(IntClass(10))
+    println("genericsClassWhere.text:${genericsClassWhere.getText()}")
+    val genericsClassWhereString = GenericsClassWhere(StringClass("ABC"))
+    println("genericsClassWhereString.text:${genericsClassWhereString.getText()}")
+
 }
 
 // 出力：
@@ -106,3 +149,6 @@ fun main() {
 // genericsClassCreateString == genericsClassString: false
 // ----GenericsClassParam---
 // genericsClassParam.text:AAA
+// ----GenericsClassWhere---
+// genericsClassWhere.text:Int:10
+// genericsClassWhereString.text:String:ABC
