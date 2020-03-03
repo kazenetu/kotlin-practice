@@ -87,6 +87,22 @@ class GenericsClassWhere<T>(val item: T)
 {
     fun getText() = "${item.type}:${item.value}"
 }
+
+//-------------------------
+/*
+ * クラスの型パラメータ:型パラメータ名表示
+ */
+class GenericsTypeNameClass<T:Any>(var item: T) {
+    /*
+     * 型名と値を組み合わせた文字列を取得
+     */
+    fun getText(): String {
+        val type = item::class.simpleName
+        return "$type:$item"
+    } 
+}
+
+
 //-------------------------
 
 /*
@@ -132,6 +148,12 @@ fun main() {
     val genericsClassWhereString = GenericsClassWhere(StringClass("ABC"))
     println("genericsClassWhereString.text:${genericsClassWhereString.getText()}")
 
+    // 型名と値の取得
+    println("----GenericsTypeNameClass---")
+    println(GenericsTypeNameClass(123).getText())
+    println(GenericsTypeNameClass("123").getText())
+    println(GenericsTypeNameClass(123.4f).getText())
+    
 }
 
 // 出力：
@@ -154,3 +176,7 @@ fun main() {
 // ----GenericsClassWhere---
 // genericsClassWhere.text:Int:10
 // genericsClassWhereString.text:String:ABC
+// ----GenericsTypeNameClass---
+// Int:123
+// String:123
+// Float:123.4
