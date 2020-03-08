@@ -28,11 +28,16 @@ fun main() {
 }
 
 // 出力：
-// ----inner var increment closure----
-// 1
-// 2
-// 3
-// ----return function closure----
+// ----filter----
+// [2, 4]
+// [2]
+// [4.5]
+// [6]
+// ----map----
+// [A, B, HELLO, WORLD!!!]
+// ----forEach----
+// a
+// b
+// Hello, world!!!
+// ----reduce----
 // 15
-// ----lamda closure----
-// 21
