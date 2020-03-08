@@ -25,6 +25,12 @@ fun main() {
     println("----reduce----")
     println(listOf(1, 2, 3, 4, 5).reduce{a ,b -> a + b})
 
+    // mixin
+    println("----mixin----")
+    val mixineData = listOf(1, 2, 3, 4, 5)
+        .filter{ it % 2 == 0 }
+        .reduce{ total,add -> total + add }
+    println(mixinData)
 }
 
 // 出力：
@@ -41,3 +47,5 @@ fun main() {
 // Hello, world!!!
 // ----reduce----
 // 15
+// ----mixin----
+// 6
