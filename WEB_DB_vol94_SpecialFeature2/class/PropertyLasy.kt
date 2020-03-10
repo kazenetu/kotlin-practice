@@ -3,7 +3,7 @@
  */
 class LasyPropertyClass() {
     /*
-     * lazyデリゲート
+     * lazyデリゲートプロパティ
      * ・どんな型も宣言可能。
      * ・valで宣言。
      * ・値の変更不可能。
