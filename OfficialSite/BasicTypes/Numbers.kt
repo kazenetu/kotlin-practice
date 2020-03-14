@@ -30,7 +30,7 @@ fun main() {
     println(getValueAndType(binary))
 
     // アンダースコアで表現した数値
-    println("---Underscores inNumbers---")
+    println("---Underscores in Numbers---")
     val oneMillion = 1_000_000
     val creditCardNumber = 1234_5678_9012_3456L
     val socialSecurityNumber = 999_99_9999L
@@ -42,7 +42,6 @@ fun main() {
     println(getValueAndType(socialSecurityNumber))
     println(getValueAndType(hexBytes))
     println(getValueAndType(bytes))
-
 }
 
 // 出力：
@@ -54,7 +53,7 @@ fun main() {
 // 0.25 is Float
 // 255 is Integer
 // 11 is Integer
-// ---Underscores inNumbers---
+// ---Underscores in Numbers---
 // 1000000 is Integer
 // 1234567890123456 is Long
 // 999999999 is Long
