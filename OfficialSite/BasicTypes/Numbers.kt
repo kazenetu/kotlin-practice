@@ -26,6 +26,7 @@ fun main() {
     println(getValueAndType(int))
     println(getValueAndType(long))
     println(getValueAndType(float))
+    println(getValueAndType(double))
     println(getValueAndType(hexadecimal))
     println(getValueAndType(binary))
 
@@ -46,11 +47,12 @@ fun main() {
 
 // 出力：
 // ---Numbers---
-// 1 is Byte
+// 1 is Byte 
 // 1 is Short
 // 1 is Integer
 // 1 is Long
 // 0.25 is Float
+// 0.125 is Double
 // 255 is Integer
 // 11 is Integer
 // ---Underscores in Numbers---
