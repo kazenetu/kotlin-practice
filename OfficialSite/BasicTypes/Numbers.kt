@@ -52,6 +52,12 @@ fun main() {
     println(getValueAndType(long.toInt()))
     println(getValueAndType(float.toDouble()))
     println(getValueAndType(double.toFloat()))
+
+    // 割り算
+    println("---Division of integers---")
+    println(getValueAndType(5/2))
+    println(getValueAndType(5L/2))
+    println(getValueAndType(5.0/2))
 }
 
 // 出力：
@@ -77,3 +83,7 @@ fun main() {
 // 1 is Integer
 // 0.25 is Double
 // 0.125 is Float
+// ---Division of integers---
+// 2 is Integer
+// 2 is Long
+// 2.5 is Double
