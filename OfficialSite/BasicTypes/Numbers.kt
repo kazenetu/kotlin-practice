@@ -43,6 +43,15 @@ fun main() {
     println(getValueAndType(socialSecurityNumber))
     println(getValueAndType(hexBytes))
     println(getValueAndType(bytes))
+
+    // 変換メソッド
+    println("---convert method---")
+    println(getValueAndType(byte.toShort()))
+    println(getValueAndType(short.toByte()))
+    println(getValueAndType(int.toLong()))
+    println(getValueAndType(long.toInt()))
+    println(getValueAndType(float.toDouble()))
+    println(getValueAndType(double.toFloat()))
 }
 
 // 出力：
@@ -61,3 +70,10 @@ fun main() {
 // 999999999 is Long
 // 4293713502 is Long
 // 3530134674 is Long
+// ---convert method---
+// 1 is Short
+// 1 is Byte
+// 1 is Long
+// 1 is Integer
+// 0.25 is Double
+// 0.125 is Float
