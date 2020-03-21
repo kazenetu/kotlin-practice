@@ -16,6 +16,11 @@ fun main() {
     println("(1..10).toList() = ${ (1..10).toList() }")
     println("emptyList<String>() = ${ emptyList<String>() }")
 
+    // 追加・削除した新しいリストを作成
+    println("---plus and minus Operators---")
+    println("emptyList<String>() + \"ABC\" = ${ emptyList<String>() + "ABC" }")
+    println("listOf(1, 2, 3, 4) - 1 = ${listOf(1, 2, 3, 4) - 1}")
+
     // 各要素へのアクセス
     println("---ReadOnly List:Access element---")
     val list = listOf(1, 2, 3, 4)
@@ -64,6 +69,9 @@ fun main() {
 // List(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // (1..10).toList() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // emptyList<String>() = []
+// ---plus and minus Operators---
+// emptyList<String>() + "ABC" = [ABC]
+// listOf(1, 2, 3, 4) - 1 = [2, 3, 4]
 // ---ReadOnly List:Access element---
 // list = [1, 2, 3, 4]
 // list.get(0) = 1
