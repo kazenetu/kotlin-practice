@@ -50,7 +50,7 @@ fun main() {
     
     // 条件一致の要素インデックスを取得
     println("---ReadOnly List:Comparator binary search---")
-    var users = listOf(
+    val users = listOf(
         UserInfo("A",10),
         UserInfo("B",30),
         UserInfo("C",100)
