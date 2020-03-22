@@ -8,7 +8,7 @@ data class UserInfo(val name: String, val age: Int)
  */
 fun main() {
 
-    // 読み書きリスト
+    // 初期化
     println("---Mutable List:Initialize---")
     println("mutableListOf(1, 2, 3, 4) = ${mutableListOf(1, 2, 3, 4)}")
     println("MutableList(10, {it}) = ${ MutableList(10, {it}) }")

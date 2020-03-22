@@ -8,7 +8,7 @@ data class UserInfo(val name: String, val age: Int)
  */
 fun main() {
 
-    // 読み取り専用リスト
+    // 初期化
     println("---ReadOnly List:Initialize---")
     println("listOf(1, 2, 3, 4) = ${listOf(1, 2, 3, 4)}")
     println("List(10, {it}) = ${ List(10, {it}) }")
