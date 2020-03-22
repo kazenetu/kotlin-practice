@@ -25,6 +25,7 @@ fun main() {
     val writeList = mutableListOf(1, 2, 3)
     println("writeList = $writeList")
 
+    println("> add")
     writeList.add(4)
     println("writeList.add(4) = $writeList")
     writeList.add(0, 5)  // パラメータが2つの場合は要素の挿入
@@ -32,9 +33,11 @@ fun main() {
     writeList.addAll(mutableListOf(15, 13, 12))
     println("writeList.addAll(mutableListOf(15, 13, 12)) = $writeList") 
 
+    println("> update")
     writeList[0] = -1
     println("update \"writeList[0] = -1\" = $writeList") 
 
+    println("> remove")
     writeList.removeAt(1)   // 指定した要素インデックスを削除する
     println("writeList.removeAt(1) = $writeList") 
 
@@ -59,16 +62,20 @@ fun main() {
     println("---Mutable List:Access element---")
     val list = mutableListOf(1, 2, 3, 4)
     println("list = $list")
+
+    println("> get element")
     println("list.get(0) = ${ list.get(0) }")
     println("list[0] = ${ list[0] }")
     println("list[0] = ${ list[0] }")
 
+    println("> getOrNull")
     println("list.getOrNull(5) = ${ list.getOrNull(5) }")                 // getOrNull:要素インデックスが存在しない場合はnullを返す
+    println("list.getOrNull(2) = ${ list.getOrNull(2) }")                 // getOrNull:要素インデックスが存在する場合は値を返す
+
+    println("> getOrNull")
+    println("list.getOrElse(2, {null}) = ${ list.getOrElse(2, {null}) }") // getOrElse:要素インデックスが存在する場合は値を返す
     println("list.getOrElse(5, {it}) = ${ list.getOrElse(5, {it}) }")     // getOrElse:要素インデックスが存在しない場合はit(5)を返す
     println("list.getOrElse(5, {null}) = ${ list.getOrElse(5, {null}) }") // getOrElse:要素インデックスが存在しない場合はnullを返す
-
-    println("list.getOrNull(2) = ${ list.getOrNull(2) }")                 // getOrNull:要素インデックスが存在する場合は値を返す
-    println("list.getOrElse(2, {null}) = ${ list.getOrElse(2, {null}) }") // getOrElse:要素インデックスが存在する場合は値を返す
 
     // リストの部分コピー(終了インデックス番号, 開始インデックス番号(含まない))
     println("---Mutable List:list parts---")
@@ -107,35 +114,41 @@ fun main() {
 // ---Mutable List:Initialize---
 // mutableListOf(1, 2, 3, 4) = [1, 2, 3, 4]
 // MutableList(10, {it}) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-// MutableList(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  
+// MutableList(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // (1..10).toMutableList() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // ---plus and minus Operators---
-// (emptyList<String>() + "ABC").toMutableList() = [ABC]    
+// (emptyList<String>() + "ABC").toMutableList() = [ABC]
 // mutableListOf(1, 2, 3, 4) - 1 = [2, 3, 4]
 // ---Mutable List:write operations---
 // writeList = [1, 2, 3]
+// > add
 // writeList.add(4) = [1, 2, 3, 4]
 // writeList.add(0, 5) = [5, 1, 2, 3, 4]
 // writeList.addAll(mutableListOf(15, 13, 12)) = [5, 1, 2, 3, 4, 15, 13, 12]
+// > update
 // update "writeList[0] = -1" = [-1, 1, 2, 3, 4, 15, 13, 12]
+// > remove
 // writeList.removeAt(1) = [-1, 2, 3, 4, 15, 13, 12]
 // ---Mutable List:Sorting---
 // writeList.sort() = [-1, 2, 3, 4, 12, 13, 15]
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [2, 4, 13, 15, 12, 3, -1]
-// writeList.reverse() = [-1, 3, 12, 15, 13, 4, 2]
+// writeList.shuffle() = [13, 4, 2, 12, 3, -1, 15]
+// writeList.reverse() = [15, -1, 3, 12, 2, 4, 13]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
+// > get element
 // list.get(0) = 1
 // list[0] = 1
 // list[0] = 1
+// > getOrNull
 // list.getOrNull(5) = null
+// list.getOrNull(2) = 3
+// > getOrNull
+// list.getOrElse(2, {null}) = 3
 // list.getOrElse(5, {it}) = 5
 // list.getOrElse(5, {null}) = null
-// list.getOrNull(2) = 3
-// list.getOrElse(2, {null}) = 3
 // ---Mutable List:list parts---
 // mutableListOf(1, 2, 3, 4).subList(1, 3) = [2, 3]
 // ---Mutable List:Linear search---
@@ -147,6 +160,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [11, 6, 14, 5, 19, 3, 17, 9, 7, 8, 15, 10, 13, 20, 12, 4, 2, 18, 1, 16]
+// binaryList.shuffle() = [10, 11, 7, 15, 2, 9, 6, 1, 18, 14, 12, 3, 17, 20, 16, 4, 13, 19, 8, 5]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
