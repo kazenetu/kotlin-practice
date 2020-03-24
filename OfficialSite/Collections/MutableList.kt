@@ -14,6 +14,7 @@ fun main() {
     println("MutableList(10, {it}) = ${ MutableList(10, {it}) }")
     println("MutableList(10){it} = ${ MutableList(10){it} }")
     println("(1..10).toMutableList() = ${ (1..10).toMutableList() }")
+    println("mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)) = ${ mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)) }")
 
     // 追加・削除した新しいリストを作成
     println("---plus and minus Operators---")
