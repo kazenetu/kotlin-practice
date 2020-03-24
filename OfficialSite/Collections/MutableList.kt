@@ -16,8 +16,10 @@ fun main() {
     println("(1..10).toMutableList() = ${ (1..10).toMutableList() }")
     println("mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)) = ${ mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)) }")
 
-    // 追加・削除した新しいリストを作成
-    println("---plus and minus Operators---")
+    // 基本的な操作
+    println("---common Operators---")
+
+    println("> plus and minus Operators")   //リストの追加と削除を生成
     println("(emptyList<String>() + \"ABC\").toMutableList() = ${ (emptyList<String>() + "ABC").toMutableList() }")
     println("mutableListOf(1, 2, 3, 4) - 1 = ${mutableListOf(1, 2, 3, 4) - 1}")
 
@@ -117,7 +119,9 @@ fun main() {
 // MutableList(10, {it}) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // MutableList(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // (1..10).toMutableList() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-// ---plus and minus Operators---
+// mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)) = [[1, 2, 3, 4], [10, 20, 30, 40]]
+// ---common Operators---
+// > plus and minus Operators
 // (emptyList<String>() + "ABC").toMutableList() = [ABC]
 // mutableListOf(1, 2, 3, 4) - 1 = [2, 3, 4]
 // ---Mutable List:write operations---
@@ -135,8 +139,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [13, 4, 2, 12, 3, -1, 15]
-// writeList.reverse() = [15, -1, 3, 12, 2, 4, 13]
+// writeList.shuffle() = [3, 15, 4, -1, 12, 2, 13]
+// writeList.reverse() = [13, 2, 12, -1, 4, 15, 3]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -161,6 +165,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [10, 11, 7, 15, 2, 9, 6, 1, 18, 14, 12, 3, 17, 20, 16, 4, 13, 19, 8, 5]
+// binaryList.shuffle() = [17, 15, 6, 16, 1, 10, 13, 14, 12, 7, 3, 11, 9, 19, 8, 4, 2, 18, 20, 5]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
