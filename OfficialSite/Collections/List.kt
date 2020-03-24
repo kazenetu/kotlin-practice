@@ -24,6 +24,10 @@ fun main() {
     println("emptyList<String>() + \"ABC\" = ${ emptyList<String>() + "ABC" }")
     println("listOf(1, 2, 3, 4) - 1 = ${listOf(1, 2, 3, 4) - 1}")
 
+    println("> isEmpty") // リストの空チェック
+    println("emptyList<String>().isEmpty() = ${ emptyList<String>().isEmpty() }")
+    println("listOf(1, 2, 3, 4).isEmpty() = ${listOf(1, 2, 3, 4).isEmpty()}")
+
     // 各要素へのアクセス
     println("---ReadOnly List:Access element---")
     val list = listOf(1, 2, 3, 4)
@@ -79,6 +83,9 @@ fun main() {
 // > plus and minus Operators
 // emptyList<String>() + "ABC" = [ABC]
 // listOf(1, 2, 3, 4) - 1 = [2, 3, 4]
+// > isEmpty
+// emptyList<String>().isEmpty() = true
+// listOf(1, 2, 3, 4).isEmpty() = false
 // ---ReadOnly List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
