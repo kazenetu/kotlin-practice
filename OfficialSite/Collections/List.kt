@@ -46,10 +46,10 @@ fun main() {
     println("> Transformations:String representation") // 変換：コレクションの文字列化
     println("listOf(\"one\", \"two\", \"three\").joinToString() = ${ listOf("one", "two", "three").joinToString() }")
     println("listOf(\"one\", \"two\", \"three\").joinToString(separator = \" | \", prefix = \"start: \", postfix = \": end\") = ${ listOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") }")
-    println("listOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\") = ${ listOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>") }")
-    println("listOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\", separator = \" \") = ${ listOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>", separator = " ") }")
-    println("listOf(\"one\", \"two\", \"three\", \"for\").joinToString { \"<\${it.toUpperCase()}>\" } = ${ listOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } }")
-    println("listOf(\"one\", \"two\", \"three\", \"for\").joinToString(transform = { \"<\${it.toUpperCase()}>\" }) = ${ listOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) }")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").joinToString(limit = 3, truncated =\"<next...>\") = ${ listOf("one", "two", "three", "four").joinToString(limit = 3, truncated = "<next...>") }")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").joinToString(limit = 3, truncated =\"<next...>\", separator = \" \") = ${ listOf("one", "two", "three", "four").joinToString(limit = 3, truncated = "<next...>", separator = " ") }")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").joinToString { \"<\${it.toUpperCase()}>\" } = ${ listOf("one", "two", "three", "four").joinToString { "<${it.toUpperCase()}>" } }")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").joinToString(transform = { \"<\${it.toUpperCase()}>\" }) = ${ listOf("one", "two", "three", "four").joinToString(transform = { "<${it.toUpperCase()}>" }) }")
 
     val stringBuffer = StringBuffer("The list of numbers: ") // バッファにコピー
     listOf("one", "two", "three").joinTo(stringBuffer)
@@ -120,10 +120,10 @@ fun main() {
 // > Transformations:String representation
 // listOf("one", "two", "three").joinToString() = one, two, three
 // listOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") = start: one | two | three: end
-// listOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>") = one, two, three, <next...>
-// listOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>", separator = " ") = one two three <next...>
-// listOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } = <ONE>, <TWO>, <THREE>, <FOR>
-// listOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) = <ONE>, <TWO>, <THREE>, <FOR>    
+// listOf("one", "two", "three", "four").joinToString(limit = 3, truncated ="<next...>") = one, two, three, <next...>
+// listOf("one", "two", "three", "four").joinToString(limit = 3, truncated ="<next...>", separator = " ") = one two three <next...>
+// listOf("one", "two", "three", "four").joinToString { "<${it.toUpperCase()}>" } = <ONE>, <TWO>, <THREE>, <FOUR>
+// listOf("one", "two", "three", "four").joinToString(transform = { "<${it.toUpperCase()}>" }) = <ONE>, <TWO>, <THREE>, <FOUR>  
 // listOf("one", "two", "three").joinTo(stringBuffer) = The list of numbers: one, two, three
 // ---ReadOnly List:Access element---
 // list = [1, 2, 3, 4]
