@@ -4,6 +4,11 @@
 data class UserInfo(val name: String, val age: Int)
 
 /*
+ * 変換：平坦化用データクラス
+ */
+data class StringContainer(val values: List<String>)
+
+/*
  * コレクション：MutableList
  */
 fun main() {
@@ -26,6 +31,28 @@ fun main() {
     println("> isEmpty") // リストの空チェック
     println("emptyList<String>().toMutableList().isEmpty() = ${ emptyList<String>().toMutableList().isEmpty() }")
     println("mutableListOf(1, 2, 3, 4).isEmpty() = ${mutableListOf(1, 2, 3, 4).isEmpty()}")
+
+    println("> Transformations:Flattening") // 変換：平坦化
+    println("mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() = ${ mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() }")
+    val stringContainers = mutableListOf(
+        StringContainer(mutableListOf("one", "two", "three")),
+        StringContainer(mutableListOf("four", "five", "six")),
+        StringContainer(mutableListOf("seven", "eight"))
+    )
+    println("stringContainers = $stringContainers")
+    println("stringContainers.flatMap { it.values } = ${stringContainers.flatMap { it.values }}") // データクラスでの平坦化
+
+    println("> Transformations:String representation") // 変換：コレクションの文字列化
+    println("mutableListOf(\"one\", \"two\", \"three\").joinToString() = ${ mutableListOf("one", "two", "three").joinToString() }")
+    println("mutableListOf(\"one\", \"two\", \"three\").joinToString(separator = \" | \", prefix = \"start: \", postfix = \": end\") = ${ mutableListOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\") = ${ mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>") }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\", separator = \" \") = ${ mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>", separator = " ") }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString { \"<\${it.toUpperCase()}>\" } = ${ mutableListOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(transform = { \"<\${it.toUpperCase()}>\" }) = ${ mutableListOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) }")
+
+    val stringBuffer = StringBuffer("The list of numbers: ") // バッファにコピー
+    mutableListOf("one", "two", "three").joinTo(stringBuffer)
+    println("mutableListOf(\"one\", \"two\", \"three\").joinTo(stringBuffer) = $stringBuffer")
 
     // 更新系
     println("---Mutable List:write operations---")
@@ -131,6 +158,18 @@ fun main() {
 // > isEmpty
 // emptyList<String>().toMutableList().isEmpty() = true
 // mutableListOf(1, 2, 3, 4).isEmpty() = false
+// > Transformations:Flattening
+// mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() = [1, 2, 3, 4, 10, 20, 30, 40]
+// stringContainers = [StringContainer(values=[one, two, three]), StringContainer(values=[four, five, six]), StringContainer(values=[seven, eight])]
+// stringContainers.flatMap { it.values } = [one, two, three, four, five, six, seven, eight]
+// > Transformations:String representation
+// mutableListOf("one", "two", "three").joinToString() = one, two, three
+// mutableListOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") = start: one | two | three: end
+// mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>") = one, two, three, <next...>
+// mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>", separator = " ") = one two three <next...>
+// mutableListOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } = <ONE>, <TWO>, <THREE>, <FOR>
+// mutableListOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) = <ONE>, <TWO>, <THREE>, <FOR>
+// mutableListOf("one", "two", "three").joinTo(stringBuffer) = The list of numbers: one, two, three
 // ---Mutable List:write operations---
 // writeList = [1, 2, 3]
 // > add
@@ -146,8 +185,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [2, 4, -1, 3, 13, 15, 12]
-// writeList.reverse() = [12, 15, 13, 3, -1, 4, 2]
+// writeList.shuffle() = [15, -1, 2, 13, 4, 12, 3]
+// writeList.reverse() = [3, 12, 4, 13, 2, -1, 15]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -172,6 +211,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [3, 10, 5, 14, 15, 2, 1, 13, 17, 12, 20, 16, 6, 9, 4, 8, 11, 7, 19, 18]
+// binaryList.shuffle() = [16, 17, 5, 14, 10, 4, 18, 6, 11, 7, 13, 9, 3, 19, 1, 20, 15, 12, 8, 2]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
