@@ -45,10 +45,10 @@ fun main() {
     println("> Transformations:String representation") // 変換：コレクションの文字列化
     println("mutableListOf(\"one\", \"two\", \"three\").joinToString() = ${ mutableListOf("one", "two", "three").joinToString() }")
     println("mutableListOf(\"one\", \"two\", \"three\").joinToString(separator = \" | \", prefix = \"start: \", postfix = \": end\") = ${ mutableListOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") }")
-    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\") = ${ mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>") }")
-    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(limit = 3, truncated =\"<next...>\", separator = \" \") = ${ mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated = "<next...>", separator = " ") }")
-    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString { \"<\${it.toUpperCase()}>\" } = ${ mutableListOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } }")
-    println("mutableListOf(\"one\", \"two\", \"three\", \"for\").joinToString(transform = { \"<\${it.toUpperCase()}>\" }) = ${ mutableListOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\").joinToString(limit = 3, truncated =\"<next...>\") = ${ mutableListOf("one", "two", "three", "four").joinToString(limit = 3, truncated = "<next...>") }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\").joinToString(limit = 3, truncated =\"<next...>\", separator = \" \") = ${ mutableListOf("one", "two", "three", "four").joinToString(limit = 3, truncated = "<next...>", separator = " ") }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\").joinToString { \"<\${it.toUpperCase()}>\" } = ${ mutableListOf("one", "two", "three", "four").joinToString { "<${it.toUpperCase()}>" } }")
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\").joinToString(transform = { \"<\${it.toUpperCase()}>\" }) = ${ mutableListOf("one", "two", "three", "four").joinToString(transform = { "<${it.toUpperCase()}>" }) }")
 
     val stringBuffer = StringBuffer("The list of numbers: ") // バッファにコピー
     mutableListOf("one", "two", "three").joinTo(stringBuffer)
@@ -165,10 +165,10 @@ fun main() {
 // > Transformations:String representation
 // mutableListOf("one", "two", "three").joinToString() = one, two, three
 // mutableListOf("one", "two", "three").joinToString(separator = " | ", prefix = "start: ", postfix = ": end") = start: one | two | three: end
-// mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>") = one, two, three, <next...>
-// mutableListOf("one", "two", "three", "for").joinToString(limit = 3, truncated ="<next...>", separator = " ") = one two three <next...>
-// mutableListOf("one", "two", "three", "for").joinToString { "<${it.toUpperCase()}>" } = <ONE>, <TWO>, <THREE>, <FOR>
-// mutableListOf("one", "two", "three", "for").joinToString(transform = { "<${it.toUpperCase()}>" }) = <ONE>, <TWO>, <THREE>, <FOR>
+// mutableListOf("one", "two", "three", "four").joinToString(limit = 3, truncated ="<next...>") = one, two, three, <next...>
+// mutableListOf("one", "two", "three", "four").joinToString(limit = 3, truncated ="<next...>", separator = " ") = one two three <next...>
+// mutableListOf("one", "two", "three", "four").joinToString { "<${it.toUpperCase()}>" } = <ONE>, <TWO>, <THREE>, <FOUR>
+// mutableListOf("one", "two", "three", "four").joinToString(transform = { "<${it.toUpperCase()}>" }) = <ONE>, <TWO>, <THREE>, <FOUR>
 // mutableListOf("one", "two", "three").joinTo(stringBuffer) = The list of numbers: one, two, three
 // ---Mutable List:write operations---
 // writeList = [1, 2, 3]
@@ -185,8 +185,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [15, -1, 2, 13, 4, 12, 3]
-// writeList.reverse() = [3, 12, 4, 13, 2, -1, 15]
+// writeList.shuffle() = [2, 3, 4, 12, -1, 15, 13]
+// writeList.reverse() = [13, 15, -1, 12, 4, 3, 2]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -211,6 +211,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [16, 17, 5, 14, 10, 4, 18, 6, 11, 7, 13, 9, 3, 19, 1, 20, 15, 12, 8, 2]
+// binaryList.shuffle() = [14, 5, 1, 9, 6, 8, 13, 17, 15, 18, 19, 11, 16, 3, 20, 2, 7, 12, 10, 4]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
