@@ -92,6 +92,43 @@ fun main() {
     println("listOf(\"one\", \"two\", \"three\", \"four\").none() = ${ listOf("one", "two", "three", "four").none() }")
     println("emptyList<Int>().none() = ${ emptyList<Int>().none() }")
 
+    println("> Retrieving Collection Parts:Slice") // コレクションパーツの取得：要素インデックス指定の部分取り出し
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(1..3) = ${ listOf("one", "two", "three", "four", "five", "six").slice(1..3) }")                     // 範囲指定
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(0..4 step 2) = ${ listOf("one", "two", "three", "four", "five", "six").slice(0..4 step 2) }")       // 範囲指定：飛び番
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(setOf(3, 5, 0)) = ${ listOf("one", "two", "three", "four", "five", "six").slice(setOf(3, 5, 0)) }") // 範囲指定：インデックス指定
+
+    println("> Retrieving Collection Parts:Take") // コレクションパーツの取得：要素インデックス数指定で前後の部分取り出し
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").take(3) = ${ listOf("one", "two", "three", "four", "five", "six").take(3) }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeLast(3) = ${ listOf("one", "two", "three", "four", "five", "six").takeLast(3) }") 
+
+    println("> Retrieving Collection Parts:Drop") // コレクションパーツの取得：要素インデックス数指定で前後の要素の除外
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").drop(2) = ${ listOf("one", "two", "three", "four", "five", "six").drop(2) }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropLast(5) = ${ listOf("one", "two", "three", "four", "five", "six").dropLast(5) }") 
+
+    println("> Retrieving Collection Parts:TakeWhile") // コレクションパーツの取得：条件を満たすまでの要素の部分取り出し
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeWhile { !it.startsWith('f') } = ${ listOf("one", "two", "three", "four", "five", "six").takeWhile { !it.startsWith('f') } }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeLastWhile { it != \"three\" } = ${ listOf("one", "two", "three", "four", "five", "six").takeLastWhile { it != "three" } }") 
+
+    println("> Retrieving Collection Parts:DropWhile") // コレクションパーツの取得：条件を満たすまでの要素の除外
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropWhile { it.length == 3 } = ${ listOf("one", "two", "three", "four", "five", "six").dropWhile { it.length == 3 } }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropLastWhile { it.contains('i') } = ${ listOf("one", "two", "three", "four", "five", "six").dropLastWhile { it.contains('i') } }") 
+
+    println("> Retrieving Collection Parts:Chunked") // 一次元配列を多次元配列の取得
+    println("(0..4).toList().chunked(3) = ${ (0..4).toList().chunked(3) }") 
+
+    println("> Retrieving Collection Parts:Chunked:lambda function") // 一次元配列を多次元配列の取得:ラムダを実行
+    println("(0..4).toList().chunked(3) { it.sum() } = ${ (0..4).toList().chunked(3) { it.sum() } }") // 各配列の合計値を計算
+
+    println("> Retrieving Collection Parts:Windowed") // 一要素ずつスライドした多次元リストの取得
+    println("(0..4).toList().windowed(3) = ${ (0..4).toList().windowed(3) }") 
+    println("(0..4).toList().windowed(3, step = 2) = ${ (0..4).toList().windowed(3, step = 2) }") 
+    println("(0..4).toList().windowed(3, partialWindows = true) = ${ (0..4).toList().windowed(3, partialWindows = true) }") 
+    println("(0..4).toList().windowed(3, step = 2, partialWindows = true) = ${ (0..4).toList().windowed(3, step = 2, partialWindows = true) }") 
+
+    println("> Retrieving Collection Parts:two-element windows") // 隣接する2要素をペアにしたリストの取得
+    println("(0..4).toList().zipWithNext() = ${ (0..4).toList().zipWithNext() }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext() = ${ listOf("one", "two", "three", "four", "five", "six").zipWithNext() }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext { s1, s2 -> s1.length > s2.length } = ${ listOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } }") 
 
     // 各要素へのアクセス
     println("---ReadOnly List:Access element---")
@@ -191,6 +228,35 @@ fun main() {
 // emptyList<Int>().any() = false
 // listOf("one", "two", "three", "four").none() = false
 // emptyList<Int>().none() = true
+// > Retrieving Collection Parts:Slice
+// listOf("one", "two", "three", "four", "five", "six").slice(1..3) = [two, three, four]
+// listOf("one", "two", "three", "four", "five", "six").slice(0..4 step 2) = [one, three, five]
+// listOf("one", "two", "three", "four", "five", "six").slice(setOf(3, 5, 0)) = [four, six, one]
+// > Retrieving Collection Parts:Take
+// listOf("one", "two", "three", "four", "five", "six").take(3) = [one, two, three]
+// listOf("one", "two", "three", "four", "five", "six").takeLast(3) = [four, five, six]
+// > Retrieving Collection Parts:Drop
+// listOf("one", "two", "three", "four", "five", "six").drop(2) = [three, four, five, six]
+// listOf("one", "two", "three", "four", "five", "six").dropLast(5) = [one]
+// > Retrieving Collection Parts:TakeWhile
+// listOf("one", "two", "three", "four", "five", "six").takeWhile { !it.startsWith('f') } = [one, two, three]
+// listOf("one", "two", "three", "four", "five", "six").takeLastWhile { it != "three" } = [four, five, six]
+// > Retrieving Collection Parts:DropWhile
+// listOf("one", "two", "three", "four", "five", "six").dropWhile { it.length == 3 } = [three, four, five, six]
+// listOf("one", "two", "three", "four", "five", "six").dropLastWhile { it.contains('i') } = [one, two, three, four]
+// > Retrieving Collection Parts:Chunked
+// (0..4).toList().chunked(3) = [[0, 1, 2], [3, 4]]
+// > Retrieving Collection Parts:Chunked:lambda function
+// (0..4).toList().chunked(3) { it.sum() } = [3, 7]
+// > Retrieving Collection Parts:Windowed
+// (0..4).toList().windowed(3) = [[0, 1, 2], [1, 2, 3], [2, 3, 4]]
+// (0..4).toList().windowed(3, step = 2) = [[0, 1, 2], [2, 3, 4]]
+// (0..4).toList().windowed(3, partialWindows = true) = [[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4], [4]]
+// (0..4).toList().windowed(3, step = 2, partialWindows = true) = [[0, 1, 2], [2, 3, 4], [4]]
+// > Retrieving Collection Parts:two-element windows
+// (0..4).toList().zipWithNext() = [(0, 1), (1, 2), (2, 3), (3, 4)]
+// listOf("one", "two", "three", "four", "five", "six").zipWithNext() = [(one, two), (two, three), (three, four), (four, five), (five, six)]
+// listOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } = [false, false, true, false, true]
 // ---ReadOnly List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
