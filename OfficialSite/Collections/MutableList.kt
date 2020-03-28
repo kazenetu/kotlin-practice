@@ -91,6 +91,44 @@ fun main() {
     println("mutableListOf(\"one\", \"two\", \"three\", \"four\").none() = ${ mutableListOf("one", "two", "three", "four").none() }")
     println("emptyList<Int>().none() = ${ emptyList<Int>().toMutableList().none() }")
 
+    println("> Retrieving Collection Parts:Slice") // コレクションパーツの取得：要素インデックス指定の部分取り出し
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(1..3) = ${ mutableListOf("one", "two", "three", "four", "five", "six").slice(1..3) }")                     // 範囲指定
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(0..4 step 2) = ${ mutableListOf("one", "two", "three", "four", "five", "six").slice(0..4 step 2) }")       // 範囲指定：飛び番
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").slice(setOf(3, 5, 0)) = ${ mutableListOf("one", "two", "three", "four", "five", "six").slice(setOf(3, 5, 0)) }") // 範囲指定：インデックス指定
+
+    println("> Retrieving Collection Parts:Take") // コレクションパーツの取得：要素インデックス数指定で前後の部分取り出し
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").take(3) = ${ mutableListOf("one", "two", "three", "four", "five", "six").take(3) }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeLast(3) = ${ mutableListOf("one", "two", "three", "four", "five", "six").takeLast(3) }") 
+
+    println("> Retrieving Collection Parts:Drop") // コレクションパーツの取得：要素インデックス数指定で前後の要素の除外
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").drop(2) = ${ mutableListOf("one", "two", "three", "four", "five", "six").drop(2) }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropLast(5) = ${ mutableListOf("one", "two", "three", "four", "five", "six").dropLast(5) }") 
+
+    println("> Retrieving Collection Parts:TakeWhile") // コレクションパーツの取得：条件を満たすまでの要素の部分取り出し
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeWhile { !it.startsWith('f') } = ${ mutableListOf("one", "two", "three", "four", "five", "six").takeWhile { !it.startsWith('f') } }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").takeLastWhile { it != \"three\" } = ${ mutableListOf("one", "two", "three", "four", "five", "six").takeLastWhile { it != "three" } }") 
+
+    println("> Retrieving Collection Parts:DropWhile") // コレクションパーツの取得：条件を満たすまでの要素の除外
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropWhile { it.length == 3 } = ${ mutableListOf("one", "two", "three", "four", "five", "six").dropWhile { it.length == 3 } }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").dropLastWhile { it.contains('i') } = ${ mutableListOf("one", "two", "three", "four", "five", "six").dropLastWhile { it.contains('i') } }") 
+
+    println("> Retrieving Collection Parts:Chunked") // 一次元配列を多次元配列の取得
+    println("(0..4).toMutableList().chunked(3) = ${ (0..4).toMutableList().chunked(3) }") 
+
+    println("> Retrieving Collection Parts:Chunked:lambda function") // 一次元配列を多次元配列の取得:ラムダを実行
+    println("(0..4).toMutableList().chunked(3) { it.sum() } = ${ (0..4).toMutableList().chunked(3) { it.sum() } }") // 各配列の合計値を計算
+
+    println("> Retrieving Collection Parts:Windowed") // 一要素ずつスライドした多次元リストの取得
+    println("(0..4).toMutableList().windowed(3) = ${ (0..4).toMutableList().windowed(3) }") 
+    println("(0..4).toMutableList().windowed(3, step = 2) = ${ (0..4).toMutableList().windowed(3, step = 2) }") 
+    println("(0..4).toMutableList().windowed(3, partialWindows = true) = ${ (0..4).toMutableList().windowed(3, partialWindows = true) }") 
+    println("(0..4).toMutableList().windowed(3, step = 2, partialWindows = true) = ${ (0..4).toMutableList().windowed(3, step = 2, partialWindows = true) }") 
+
+    println("> Retrieving Collection Parts:two-element windows") // 隣接する2要素をペアにしたリストの取得
+    println("(0..4).toMutableList().zipWithNext() = ${ (0..4).toMutableList().zipWithNext() }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext() = ${ mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext() }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext { s1, s2 -> s1.length > s2.length } = ${ mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } }") 
+
 
     // 更新系
     println("---Mutable List:write operations---")
@@ -236,6 +274,35 @@ fun main() {
 // emptyList<Int>().any() = false
 // mutableListOf("one", "two", "three", "four").none() = false
 // emptyList<Int>().none() = true
+// > Retrieving Collection Parts:Slice
+// mutableListOf("one", "two", "three", "four", "five", "six").slice(1..3) = [two, three, four]
+// mutableListOf("one", "two", "three", "four", "five", "six").slice(0..4 step 2) = [one, three, five]
+// mutableListOf("one", "two", "three", "four", "five", "six").slice(setOf(3, 5, 0)) = [four, six, one]
+// > Retrieving Collection Parts:Take
+// mutableListOf("one", "two", "three", "four", "five", "six").take(3) = [one, two, three]
+// mutableListOf("one", "two", "three", "four", "five", "six").takeLast(3) = [four, five, six]
+// > Retrieving Collection Parts:Drop
+// mutableListOf("one", "two", "three", "four", "five", "six").drop(2) = [three, four, five, six]
+// mutableListOf("one", "two", "three", "four", "five", "six").dropLast(5) = [one]
+// > Retrieving Collection Parts:TakeWhile
+// mutableListOf("one", "two", "three", "four", "five", "six").takeWhile { !it.startsWith('f') } = [one, two, three]
+// mutableListOf("one", "two", "three", "four", "five", "six").takeLastWhile { it != "three" } = [four, five, six]
+// > Retrieving Collection Parts:DropWhile
+// mutableListOf("one", "two", "three", "four", "five", "six").dropWhile { it.length == 3 } = [three, four, five, six]
+// mutableListOf("one", "two", "three", "four", "five", "six").dropLastWhile { it.contains('i') } = [one, two, three, four]
+// > Retrieving Collection Parts:Chunked
+// (0..4).toMutableList().chunked(3) = [[0, 1, 2], [3, 4]]
+// > Retrieving Collection Parts:Chunked:lambda function
+// (0..4).toMutableList().chunked(3) { it.sum() } = [3, 7]
+// > Retrieving Collection Parts:Windowed
+// (0..4).toMutableList().windowed(3) = [[0, 1, 2], [1, 2, 3], [2, 3, 4]]
+// (0..4).toMutableList().windowed(3, step = 2) = [[0, 1, 2], [2, 3, 4]]
+// (0..4).toMutableList().windowed(3, partialWindows = true) = [[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4], [4]]
+// (0..4).toMutableList().windowed(3, step = 2, partialWindows = true) = [[0, 1, 2], [2, 3, 4], [4]]
+// > Retrieving Collection Parts:two-element windows
+// (0..4).toMutableList().zipWithNext() = [(0, 1), (1, 2), (2, 3), (3, 4)]
+// mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext() = [(one, two), (two, three), (three, four), (four, five), (five, six)]
+// mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } = [false, false, true, false, true]
 // ---Mutable List:write operations---
 // writeList = [1, 2, 3]
 // > add
@@ -251,8 +318,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [-1, 13, 4, 12, 15, 2, 3]
-// writeList.reverse() = [3, 2, 15, 12, 4, 13, -1]
+// writeList.shuffle() = [13, 4, 15, -1, 12, 3, 2]
+// writeList.reverse() = [2, 3, 12, -1, 15, 4, 13]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -277,6 +344,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [1, 9, 5, 19, 10, 2, 11, 20, 12, 17, 15, 13, 6, 18, 7, 14, 4, 3, 16, 8]
+// binaryList.shuffle() = [17, 13, 16, 6, 10, 8, 11, 4, 5, 9, 3, 19, 1, 14, 7, 2, 18, 20, 15, 12]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
