@@ -32,6 +32,10 @@ fun main() {
     println("emptyList<String>().toMutableList().isEmpty() = ${ emptyList<String>().toMutableList().isEmpty() }")
     println("mutableListOf(1, 2, 3, 4).isEmpty() = ${mutableListOf(1, 2, 3, 4).isEmpty()}")
 
+    println("> isNotEmpty") // リストの要素ありチェック
+    println("emptyList<String>().toMutableList().isNotEmpty() = ${ emptyList<String>().toMutableList().isNotEmpty() }")
+    println("mutableListOf(1, 2, 3, 4).isNotEmpty() = ${mutableListOf(1, 2, 3, 4).isNotEmpty()}")
+
     println("> Transformations:Flattening") // 変換：平坦化
     println("mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() = ${ mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() }")
     val stringContainers = mutableListOf(
@@ -234,6 +238,9 @@ fun main() {
 // > isEmpty
 // emptyList<String>().toMutableList().isEmpty() = true
 // mutableListOf(1, 2, 3, 4).isEmpty() = false
+// > isNotEmpty
+// emptyList<String>().toMutableList().isNotEmpty() = false
+// mutableListOf(1, 2, 3, 4).isNotEmpty() = true
 // > Transformations:Flattening
 // mutableListOf(mutableListOf(1, 2, 3, 4), mutableListOf(10, 20, 30, 40)).flatten() = [1, 2, 3, 4, 10, 20, 30, 40]
 // stringContainers = [StringContainer(values=[one, two, three]), StringContainer(values=[four, five, six]), StringContainer(values=[seven, eight])]
@@ -318,8 +325,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [13, 4, 15, -1, 12, 3, 2]
-// writeList.reverse() = [2, 3, 12, -1, 15, 4, 13]
+// writeList.shuffle() = [2, 13, 4, -1, 12, 15, 3]
+// writeList.reverse() = [3, 15, 12, -1, 4, 13, 2]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -344,6 +351,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [17, 13, 16, 6, 10, 8, 11, 4, 5, 9, 3, 19, 1, 14, 7, 2, 18, 20, 15, 12]
+// binaryList.shuffle() = [11, 4, 20, 5, 15, 12, 14, 13, 16, 8, 19, 2, 3, 17, 6, 18, 7, 9, 10, 1]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
