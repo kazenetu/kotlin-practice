@@ -33,6 +33,10 @@ fun main() {
     println("emptyList<String>().isEmpty() = ${ emptyList<String>().isEmpty() }")
     println("listOf(1, 2, 3, 4).isEmpty() = ${listOf(1, 2, 3, 4).isEmpty()}")
 
+    println("> isNotEmpty") // リストの要素ありチェック
+    println("emptyList<String>().isNotEmpty() = ${ emptyList<String>().isNotEmpty() }")
+    println("listOf(1, 2, 3, 4).isNotEmpty() = ${listOf(1, 2, 3, 4).isNotEmpty()}")
+
     println("> Transformations:Flattening") // 変換：平坦化
     println("listOf(listOf(1, 2, 3, 4), listOf(10, 20, 30, 40)).flatten() = ${ listOf(listOf(1, 2, 3, 4), listOf(10, 20, 30, 40)).flatten() }")
     val stringContainers = listOf(
@@ -209,8 +213,8 @@ fun main() {
 // 出力：
 // ---ReadOnly List:Initialize---
 // listOf(1, 2, 3, 4) = [1, 2, 3, 4]
-// List(10, {it}) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-// List(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+// List(10, {it}) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   
+// List(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]     
 // (1..10).toList() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // emptyList<String>() = []
 // listOf(listOf(1, 2, 3, 4), listOf(10, 20, 30, 40)) = [[1, 2, 3, 4], [10, 20, 30, 40]]
@@ -221,6 +225,9 @@ fun main() {
 // > isEmpty
 // emptyList<String>().isEmpty() = true
 // listOf(1, 2, 3, 4).isEmpty() = false
+// > isNotEmpty
+// emptyList<String>().isNotEmpty() = false
+// listOf(1, 2, 3, 4).isNotEmpty() = true
 // > Transformations:Flattening
 // listOf(listOf(1, 2, 3, 4), listOf(10, 20, 30, 40)).flatten() = [1, 2, 3, 4, 10, 20, 30, 40]
 // stringContainers = [StringContainer(values=[one, two, three]), StringContainer(values=[four, five, six]), StringContainer(values=[seven, eight])]
