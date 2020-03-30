@@ -133,6 +133,38 @@ fun main() {
     println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext() = ${ mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext() }") 
     println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").zipWithNext { s1, s2 -> s1.length > s2.length } = ${ mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } }") 
 
+    println("> Retrieving Single Elements:Retrieving by position") // 単一の要素の取得
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").elementAt(3) = ${ mutableListOf("one", "two", "three", "four", "five", "six").elementAt(3) }") 
+    println("sortedSetOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").elementAt(0) = ${ sortedSetOf("one", "two", "three", "four", "five", "six").elementAt(0) }") 
+
+    println("> Retrieving Single Elements:Retrieving by position:first and the last element") // 単一の要素の取得:先頭/末端の要素の取得
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").first() = ${ mutableListOf("one", "two", "three", "four", "five", "six").first() }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").last() = ${ mutableListOf("one", "two", "three", "four", "five", "six").last() }") 
+
+    println("> Retrieving Single Elements:Retrieving by position:non-existing positions") // 単一の要素の取得:存在しないケース
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").elementAtOrNull(6) = ${ mutableListOf("one", "two", "three", "four", "five", "six").elementAtOrNull(6) }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").elementAtOrElse(6) { index -> \"The value for index \$index is undefined\"} = ${ mutableListOf("one", "two", "three", "four", "five", "six").elementAtOrElse(6) { index -> "The value for index $index is undefined" } }") 
+
+    println("> Retrieving Single Elements:Retrieving by condition:first and the last element") // 単一の要素の取得:条件付き:先頭/末端の要素の取得
+    println("lismutableListOftOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").first { it.length > 3 }  = ${ mutableListOf("one", "two", "three", "four", "five", "six").first { it.length > 3 } }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").last { it.startsWith(\"f\") } = ${ mutableListOf("one", "two", "three", "four", "five", "six").last { it.startsWith("f") } }") 
+
+    println("> Retrieving Single Elements:Retrieving by condition:first and the last element:non-existing:use aliases") // 単一の要素の取得:条件付き:先頭/末端の要素の取得:存在しないケース：使用推奨のエイリアス
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").find { it.length > 5 }  = ${ mutableListOf("one", "two", "three", "four", "five", "six").find { it.length > 5 } }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").findLast { it.startsWith(\"V\") } = ${ mutableListOf("one", "two", "three", "four", "five", "six").findLast { it.startsWith("V") } }") 
+
+    println("> Retrieving Single Elements:Retrieving by condition:first and the last element:non-existing") // 単一の要素の取得:条件付き:先頭/末端の要素の取得:存在しないケース:非推奨
+    println("[use find]    mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").firstOrNull { it.length > 5 }  = ${ mutableListOf("one", "two", "three", "four", "five", "six").firstOrNull { it.length > 5 }  }") 
+    println("[use findLst] mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").lastOrNull { it.startsWith(\"V\") } = ${ mutableListOf("one", "two", "three", "four", "five", "six").lastOrNull { it.startsWith("V") } }") 
+
+    println("> Retrieving Single Elements:Checking existence") // 単一の要素の取得:存在確認
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").contains(\"four\")  = ${ mutableListOf("one", "two", "three", "four", "five", "six").contains("four") }") 
+    println("\"one\" in mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\")  = ${ "one" in mutableListOf("one", "two", "three", "four", "five", "six") }") 
+    
+    println("> Retrieving Single Elements:Checking existence:multiple") // 単一の要素の取得:存在確認:複数一致
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").containsAll(listOf(\"one\", \"four\"))  = ${ mutableListOf("one", "two", "three", "four", "five", "six").containsAll(listOf("one", "four")) }") 
+    println("mutableListOf(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\").containsAll(listOf(\"zero\", \"four\"))  = ${ mutableListOf("one", "two", "three", "four", "five", "six").containsAll(listOf("zero", "four")) }") 
+
 
     // 更新系
     println("---Mutable List:write operations---")
@@ -310,6 +342,31 @@ fun main() {
 // (0..4).toMutableList().zipWithNext() = [(0, 1), (1, 2), (2, 3), (3, 4)]
 // mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext() = [(one, two), (two, three), (three, four), (four, five), (five, six)]
 // mutableListOf("one", "two", "three", "four", "five", "six").zipWithNext { s1, s2 -> s1.length > s2.length } = [false, false, true, false, true]
+// > Retrieving Single Elements:Retrieving by position
+// mutableListOf("one", "two", "three", "four", "five", "six").elementAt(3) = four
+// sortedSetOf("one", "two", "three", "four", "five", "six").elementAt(0) = five
+// > Retrieving Single Elements:Retrieving by position:first and the last element
+// mutableListOf("one", "two", "three", "four", "five", "six").first() = one
+// mutableListOf("one", "two", "three", "four", "five", "six").last() = six
+// > Retrieving Single Elements:Retrieving by position:non-existing positions
+// mutableListOf("one", "two", "three", "four", "five", "six").elementAtOrNull(6) = null
+// mutableListOf("one", "two", "three", "four", "five", "six").elementAtOrElse(6) { index -> "The value for index $index is undefined"} = The value for index 
+// 6 is undefined
+// > Retrieving Single Elements:Retrieving by condition:first and the last element
+// lismutableListOftOf("one", "two", "three", "four", "five", "six").first { it.length > 3 }  = three
+// mutableListOf("one", "two", "three", "four", "five", "six").last { it.startsWith("f") } = five
+// > Retrieving Single Elements:Retrieving by condition:first and the last element:non-existing:use aliases
+// mutableListOf("one", "two", "three", "four", "five", "six").find { it.length > 5 }  = null
+// mutableListOf("one", "two", "three", "four", "five", "six").findLast { it.startsWith("V") } = null
+// > Retrieving Single Elements:Retrieving by condition:first and the last element:non-existing
+// [use find]    mutableListOf("one", "two", "three", "four", "five", "six").firstOrNull { it.length > 5 }  = null
+// [use findLst] mutableListOf("one", "two", "three", "four", "five", "six").lastOrNull { it.startsWith("V") } = null
+// > Retrieving Single Elements:Checking existence
+// mutableListOf("one", "two", "three", "four", "five", "six").contains("four")  = true
+// "one" in mutableListOf("one", "two", "three", "four", "five", "six")  = true
+// > Retrieving Single Elements:Checking existence:multiple
+// mutableListOf("one", "two", "three", "four", "five", "six").containsAll(listOf("one", "four"))  = true
+// mutableListOf("one", "two", "three", "four", "five", "six").containsAll(listOf("zero", "four"))  = false
 // ---Mutable List:write operations---
 // writeList = [1, 2, 3]
 // > add
@@ -325,8 +382,8 @@ fun main() {
 // writeList.sortDescending() = [15, 13, 12, 4, 3, 2, -1]
 // writeList.sortBy(){ it % 10 } = [-1, 12, 2, 13, 3, 4, 15]
 // writeList.sortByDescending(){ it % 10 } = [15, 4, 13, 3, 12, 2, -1]
-// writeList.shuffle() = [2, 13, 4, -1, 12, 15, 3]
-// writeList.reverse() = [3, 15, 12, -1, 4, 13, 2]
+// writeList.shuffle() = [4, 13, 12, 3, 15, -1, 2]
+// writeList.reverse() = [2, -1, 15, 3, 12, 13, 4]
 // ---Mutable List:Access element---
 // list = [1, 2, 3, 4]
 // > get element
@@ -351,6 +408,6 @@ fun main() {
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
 // ---Mutable List:Binary search in sorted lists---
-// binaryList.shuffle() = [11, 4, 20, 5, 15, 12, 14, 13, 16, 8, 19, 2, 3, 17, 6, 18, 7, 9, 10, 1]
+// binaryList.shuffle() = [8, 17, 18, 10, 16, 2, 3, 1, 12, 4, 9, 6, 11, 13, 19, 15, 7, 5, 14, 20]
 // binaryList.sort() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 // binaryList.binarySearch(11) = 10
