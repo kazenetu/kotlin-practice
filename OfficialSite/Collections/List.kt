@@ -248,13 +248,38 @@ fun main() {
     println("users.binarySearch(UserInfo(\"C\",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = ${ users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) }")
     println("　")
 
+    // 並び替え
+    println("---ReadOnly List : Collection Ordering---")
+
+    println("> Natural order")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").sorted()  = ${ listOf("one", "two", "three", "four").sorted() }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\").sortedDescending()  = ${ listOf("one", "two", "three", "four").sortedDescending() }") 
+    println("　")
+
+    println("> Custom orders")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").sortedBy { it.length }  = ${ listOf("one", "two", "three", "four").sortedBy { it.length } }") 
+    println("listOf(\"one\", \"two\", \"three\", \"four\").sortedByDescending { it.length }  = ${ listOf("one", "two", "three", "four").sortedByDescending { it.length } }") 
+    println("　")
+
+    println("> Custom orders:custom order for the collection sorting")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").sortedWith(compareBy { it.length })  = ${ listOf("one", "two", "three", "four").sortedWith(compareBy { it.length }) }") 
+    println("　")
+
+    println("> Reverse order")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").reversed()  = ${ listOf("one", "two", "three", "four").reversed() }") 
+    println("　")
+
+    println("> Random order")
+    println("listOf(\"one\", \"two\", \"three\", \"four\").shuffled()  = ${ listOf("one", "two", "three", "four").shuffled() }") 
+    println("　")
+
 }
 
 // 出力：
 // ---ReadOnly List : Initialize---
 // listOf(1, 2, 3, 4) = [1, 2, 3, 4]
 // List(10, {it}) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-// List(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  
+// List(10){it} = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // (1..10).toList() = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // emptyList<String>() = []
 // listOf(listOf(1, 2, 3, 4), listOf(10, 20, 30, 40)) = [[1, 2, 3, 4], [10, 20, 30, 40]]
@@ -423,3 +448,21 @@ fun main() {
 // ---ReadOnly List : Comparator binary search---
 // users = [UserInfo(name=A, age=10), UserInfo(name=B, age=30), UserInfo(name=C, age=100)]
 // users.binarySearch(UserInfo("C",100), compareBy<UserInfo> { it.name }.thenBy{ it.age }) = 2
+// 　
+// ---ReadOnly List : Collection Ordering---
+// > Natural order
+// listOf("one", "two", "three", "four").sorted()  = [four, one, three, two]
+// listOf("one", "two", "three", "four").sortedDescending()  = [two, three, one, four]
+// 　
+// > Custom orders
+// listOf("one", "two", "three", "four").sortedBy { it.length }  = [one, two, four, three]
+// listOf("one", "two", "three", "four").sortedByDescending { it.length }  = [three, four, one, two]
+// 　
+// > Custom orders:custom order for the collection sorting
+// listOf("one", "two", "three", "four").sortedWith(compareBy { it.length })  = [one, two, four, three]
+// 　
+// > Reverse order
+// listOf("one", "two", "three", "four").reversed()  = [four, three, two, one]
+// 　
+// > Random order
+// listOf("one", "two", "three", "four").shuffled()  = [two, three, four, one]
