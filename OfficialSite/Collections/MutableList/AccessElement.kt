@@ -12,7 +12,6 @@ fun main() {
     println("> get element")
     println("list.get(0) = ${ list.get(0) }")
     println("list[0] = ${ list[0] }")
-    println("list[0] = ${ list[0] }")
     println("　")
 
     println("> getOrNull")
@@ -20,7 +19,7 @@ fun main() {
     println("list.getOrNull(2) = ${ list.getOrNull(2) }")                 // getOrNull:要素インデックスが存在する場合は値を返す
     println("　")
 
-    println("> getOrNull")
+    println("> getOrElse")
     println("list.getOrElse(2, {null}) = ${ list.getOrElse(2, {null}) }") // getOrElse:要素インデックスが存在する場合は値を返す
     println("list.getOrElse(5, {it}) = ${ list.getOrElse(5, {it}) }")     // getOrElse:要素インデックスが存在しない場合はit(5)を返す
     println("list.getOrElse(5, {null}) = ${ list.getOrElse(5, {null}) }") // getOrElse:要素インデックスが存在しない場合はnullを返す
@@ -39,13 +38,12 @@ fun main() {
 // > get element
 // list.get(0) = 1
 // list[0] = 1
-// list[0] = 1
 // 　
 // > getOrNull
 // list.getOrNull(5) = null
 // list.getOrNull(2) = 3
 // 　
-// > getOrNull
+// > getOrElse
 // list.getOrElse(2, {null}) = 3
 // list.getOrElse(5, {it}) = 5
 // list.getOrElse(5, {null}) = null
