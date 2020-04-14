@@ -28,3 +28,7 @@ fun main() {
 }
 
 // 出力：
+// ---SealedClass : when expression---
+// eval(Const(1.5)) = 1.5
+// eval(Sum(Const(1.5), Const(0.5)) = 2.0
+// eval(NotANumber) = NaN
