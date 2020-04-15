@@ -22,6 +22,7 @@ fun main() {
     map.put("A", 100)
     map.put("B", 1000)
     println("StringKeyMap<Int> = $map")
+    println("　")
 
     // メソッドの別名
     println("---Typealiases Method---")
@@ -46,6 +47,7 @@ fun main() {
 // ---Typealiases Collection---
 // stringList = [A, B, C]
 // StringKeyMap<Int> = {A=100, B=1000}
+// 　
 // ---Typealiases Method---
 // Callback ABC
 // Callback 123

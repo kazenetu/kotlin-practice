@@ -29,6 +29,7 @@ fun main() {
     println(getValueAndType(double))
     println(getValueAndType(hexadecimal))
     println(getValueAndType(binary))
+    println("　")
 
     // アンダースコアで表現した数値
     println("---Underscores in Numbers---")
@@ -43,6 +44,7 @@ fun main() {
     println(getValueAndType(socialSecurityNumber))
     println(getValueAndType(hexBytes))
     println(getValueAndType(bytes))
+    println("　")
 
     // 変換メソッド
     println("---convert method---")
@@ -52,6 +54,7 @@ fun main() {
     println(getValueAndType(long.toInt()))
     println(getValueAndType(float.toDouble()))
     println(getValueAndType(double.toFloat()))
+    println("　")
 
     // 割り算
     println("---Division of integers---")
@@ -70,12 +73,14 @@ fun main() {
 // 0.125 is Double
 // 255 is Integer
 // 11 is Integer
+// 　
 // ---Underscores in Numbers---
 // 1000000 is Integer
 // 1234567890123456 is Long
 // 999999999 is Long
 // 4293713502 is Long
 // 3530134674 is Long
+// 　
 // ---convert method---
 // 1 is Short
 // 1 is Byte
@@ -83,6 +88,7 @@ fun main() {
 // 1 is Integer
 // 0.25 is Double
 // 0.125 is Float
+// 　
 // ---Division of integers---
 // 2 is Integer
 // 2 is Long

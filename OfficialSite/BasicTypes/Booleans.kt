@@ -10,6 +10,7 @@ fun main() {
 
     println("trueValue = $trueValue")
     println("falseValue = $falseValue")
+    println("　")
 
     // 操作
     println("---Built in operations---")
@@ -22,6 +23,7 @@ fun main() {
 // ---Booleans---
 // trueValue = true
 // falseValue = false
+// 　
 // ---Built in operations---
 // trueValue && falseValue = false
 // trueValue || falseValue = true

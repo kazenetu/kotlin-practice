@@ -29,6 +29,7 @@ fun main() {
     println(getValueAndType(a))
     println(getValueAndType(one))
     println(getValueAndType(c))
+    println("　")
 
     // 文字をIntに変換
     println("---Character to Int---")
@@ -48,6 +49,7 @@ fun main() {
 // a is Character
 // 1 is Character
 // c is Character
+// 　
 // ---Character to Int---
 // 1 is Integer
 // java.lang.IllegalArgumentException: a is not 0..9

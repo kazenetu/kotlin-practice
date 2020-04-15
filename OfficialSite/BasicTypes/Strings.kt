@@ -35,6 +35,7 @@ fun main() {
     """.trimMargin("<")
     println("multi line trimMargin('<') =")
     println(multiLineTrimlt)
+    println("　")
 
     println("---access character---")
     val accesscharacter = "abc"
@@ -64,6 +65,7 @@ fun main() {
 // Line1
 // Line2
 //   Line3
+// 　
 // ---access character---
 // a
 // b
