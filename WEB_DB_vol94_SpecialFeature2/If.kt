@@ -30,12 +30,14 @@ fun main() {
     else {
         println("$localInt <= 5")
     }
+    println("　")
 
     // ローカルフィールドにif式を設定
     println("----set if statement---")
     val localAny = localInt as Any
     val isString = if(localAny is String) true else false
     println("isString = $isString")
+    println("　")
 
     // 範囲指定
     println("----if range statement ---")
@@ -45,18 +47,20 @@ fun main() {
     if(value in checkStartValue..checkEndValue) {
         println("hit $value!")
     }
+    println("　")
 
     // 範囲指定 否定
     println("----if range statement not in---")
     if(value !in 6..10) {
         println("not hit $value!")
     }
-
+    println("　")
 
     // メソッド呼び出し
     println("----call method1---")
     println(moreThan5(6))
     println(moreThan5(5))
+    println("　")
 
     // ブロックの最後が戻り値のメソッド呼び出し
     println("----call method2---")
@@ -68,15 +72,20 @@ fun main() {
 // 出力：
 // ----Local if statement---
 // 10 > 5
+// 　
 // ----set if statement---
 // isString = false
+// 　
 // ----if range statement ---
 // hit 5!
+// 　
 // ----if range statement not in---
 // not hit 5!
+// 　
 // ----call method1---
 // 6 > 5
 // 5 <= 5
+// 　
 // ----call method2---
 // isInt(6) is true
 // isInt("ABC") is false

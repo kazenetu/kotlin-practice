@@ -31,6 +31,7 @@ fun main() {
     // プライマリコンストラクタ
     println("----Primary Constructor---")
     val primary = PrimaryConstructor("ABC")
+    println("　")
 
     // セカンダリコンストラクタ
     println("----Secondary Constructor---")
@@ -40,6 +41,7 @@ fun main() {
 // 出力：
 // ----Primary Constructor---
 // PrimaryConstructor:name is ABC
+// 　
 // ----Secondary Constructor---
 // PrimaryConstructor:name is CDE
 // SecondaryConstructor:age is 10

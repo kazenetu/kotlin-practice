@@ -29,11 +29,13 @@ fun main() {
     println(iClosure())
     println(iClosure())
     println(iClosure())
+    println("　")
 
     // パラメータの値の参照
     println("----return function closure----")
     val aClosure = addClosure(10)
     println(aClosure(5))
+    println("　")
 
     // ラムダ：範囲対象外のローカルフィールドの更新
     println("----lamda closure----")
@@ -49,7 +51,9 @@ fun main() {
 // 1
 // 2
 // 3
+// 　
 // ----return function closure----
 // 15
+// 　
 // ----lamda closure----
 // 21

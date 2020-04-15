@@ -17,6 +17,7 @@ fun main() {
     println("----Minimum Class---")
     val minimum = Minimum()
     println("minimum is $minimum")
+    println("　")
 
     // 最小クラス：プロパティあり
     println("----Minimum class Exists Prperty---")
@@ -31,6 +32,7 @@ fun main() {
 // 出力：
 // ----Minimum Class---
 // minimum is Minimum@5ca881b5
+// 　
 // ----Minimum class Exists Prperty---
 // getOnlyProperty is ABC
 // setGetProperty is 10

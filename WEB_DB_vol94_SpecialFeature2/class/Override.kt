@@ -40,11 +40,13 @@ fun main() {
     println("----SuperClass---")
     val superClass = SuperClass(10)
     superClass.print()
+    println("　")
 
     // サブクラス：プライマリコンストラクタの呼び出し
     println("----SubClass PrimaryConstructor---")
     val subClassPrimary = SubClassPrimary(20)
     subClassPrimary.print()
+    println("　")
 
     // サブクラス：セカンダリコンストラクタの呼び出し
     println("----SubClass SecondaryConstructor---")
@@ -55,7 +57,9 @@ fun main() {
 // 出力：
 // ----SuperClass---
 // SuperClass age=10
+// 　
 // ----SubClass PrimaryConstructor---
 // SubClass age=20
+// 　
 // ----SubClass SecondaryConstructor---
 // SubClass age=30

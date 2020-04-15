@@ -61,10 +61,12 @@ fun main() {
     // クラスAの呼び出し
     println("----ClassA---")
     callPrint(ClassA(10))
+    println("　")
 
     // クラスBの呼び出し
     println("----SubClassB---")
     callPrint(ClassB(20))
+    println("　")
 
     // クラスCの呼び出し
     println("----SubClassC---")
@@ -74,7 +76,9 @@ fun main() {
 // 出力：
 // ----ClassA---
 // ClassA age=10
+// 　
 // ----SubClassB---
 // ClassB age=20
+// 　
 // ----SubClassC---
 // default function age=30

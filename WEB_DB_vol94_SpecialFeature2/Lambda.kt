@@ -25,6 +25,7 @@ fun main() {
         println("ABC")
         println("123")
     })
+    println("　")
 
     // ラムダ式の利用
     println("----calc---")
@@ -36,6 +37,7 @@ fun main() {
 // ----run---
 // ABC
 // 123
+// 　
 // ----calc---
 // 10+5=15
 // 10*5=50

@@ -35,11 +35,13 @@ fun main() {
         println("ABC")
         println("123")
     })
+    println("　")
 
     // ラムダ式のinlineの使用
     println("----inline calc---")
     println("10+5=${ calc(10, {x -> x + 5}) }")
     println("10*5=${ calc(10, {it * 5}) }")
+    println("　")
 
     // ジェネリックスのinlineの使用
     println("----inline generics nameOf<Int>---")
@@ -50,8 +52,10 @@ fun main() {
 // ----inline run---
 // ABC
 // 123
+// 　
 // ----inline calc---
 // 10+5=15
 // 10*5=50
+// 　
 // ----inline generics nameOf<Int>---
 // Int

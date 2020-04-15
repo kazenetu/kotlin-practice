@@ -62,37 +62,44 @@ fun main() {
     println("----noReturn---")
     noReturn()
     NoReturnUnitLess()
+    println("　")
 
     // 計算結果を返す
     println("----add multiplication---")
     println(add(3, 2))
     println(multiplication(3, 2))
+    println("　")
 
     // null許容、エルビス演算子
     println("----length---")
     println(length("ABC"))
     println(length(null))
+    println("　")
 
     // パラメータが文字列か確認
     println("----isString---")
     println(isString("ABC"))
     println(isString(1))
+    println("　")
 
     // パラメータが数値か確認
     println("----isInt---")
     println(isInt("ABC"))
     println(isInt(1))
+    println("　")
 
     // デフォルトパラメータ
     println("----defaultArg---")
     defaultArg("kotlin")
     defaultArg()
+    println("　")
 
     // 複数のデフォルトパラメータ
     println("----defaultArgs---")
     defaultArgs()
     defaultArgs("Thanks","kotlin")
     defaultArgs(name = "kotlin")
+    println("　")
 
     // ローカルメソッド
     println("----localMethod---")
@@ -104,20 +111,26 @@ fun main() {
 // ----noReturn---
 // NoReturn
 // noReturnUnitLess
+// 　
 // ----add multiplication---
 // 5
 // 6
+// 　
 // ----length---
 // 3
 // 0
+// 　
 // ----isString---
 // true
 // false
+// 　
 // ----isInt---
 // false
 // true
+// 　
 // ----defaultArg---
 // Hello, kotlin!
 // Hello, noname!
+// 　
 // ----localMethod---
 // localMethod

@@ -48,11 +48,13 @@ fun main() {
     println("----AbstractClass---")
     //val abstractClass = AbstractClass(10)
     //abstractClass.print()
+    println("　")
 
     // サブクラスAの呼び出し
     println("----SubClassA---")
     val subClassA = SubClassA(20)
     subClassA.print()
+    println("　")
 
     // サブクラスBの呼び出し
     println("----SubClassB---")
@@ -62,7 +64,9 @@ fun main() {
 
 // 出力：
 // ----AbstractClass---
+// 　
 // ----SubClassA---
 // SubClassA age=20
+// 　
 // ----SubClassB---
 // SubClassB age=20

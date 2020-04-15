@@ -35,6 +35,7 @@ fun main() {
     println("$dataClass")
     println("dataClass == DataClass(\"ABC\", 10): ${dataClass == DataClass("ABC", 10)}")
     println("dataClass == DataClass(\"ABC\", 20): ${dataClass == DataClass("ABC", 20)}")
+    println("　")
 
     // データクラス：インターフェイス継承
     println("----DataClassInheritInterface---")
@@ -42,6 +43,7 @@ fun main() {
     dataClassInheritInterface.print()
     println("dataClassInheritInterface == DataClassInheritInterface(\"DEF\", 100): ${dataClassInheritInterface == DataClassInheritInterface("DEF", 100)}")
     println("dataClassInheritInterface == DataClassInheritInterface(\"ABC\", 100): ${dataClassInheritInterface == DataClassInheritInterface("ABC", 100)}")
+    println("　")
 
     // 分解宣言
     println("----Destructuring Declarations---")
@@ -54,9 +56,11 @@ fun main() {
 // DataClass(name=ABC, age=10)
 // dataClass == DataClass("ABC", 10): true
 // dataClass == DataClass("ABC", 20): false
+// 　
 // ----DataClassInheritInterface---
 // DataClassInheritInterface(name=DEF, age=100), DEF,100
 // dataClassInheritInterface == DataClassInheritInterface("DEF", 100): true
 // dataClassInheritInterface == DataClassInheritInterface("ABC", 100): false
+// 　
 // ----Destructuring Declarations---
 // DEF,100

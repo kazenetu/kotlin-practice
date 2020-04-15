@@ -15,6 +15,7 @@ fun main() {
             println("odd $value")
         }
     }
+    println("　")
 
     // when式を使ったメソッド(値を返す場合はelse必須)
     println("----when method---")
@@ -29,6 +30,7 @@ fun main() {
     else {
         println("even $value")
     }
+    println("　")
 
     // when式のマッチング
     println("----when matching range and call method---")
@@ -44,6 +46,7 @@ fun main() {
             println("other $value")
         }
     }
+    println("　")
 
     // 型のマッチングのwhen式
     println("----when matching types---")
@@ -63,6 +66,7 @@ fun main() {
     printType("ABC")
     printType(123)
     printType(listOf(1, 2, 3))
+    println("　")
 
     // 値を渡さないwhen式
     println("----non set value---")
@@ -88,14 +92,18 @@ fun main() {
 // 出力：
 // ----when statement---
 // even 10
+// 　
 // ----when method---
 // even 10
+// 　
 // ----when matching range and call method---
 // 8+2 = 10
+// 　
 // ----when matching types---
 // ABC is String
 // 123 is Int
 // other type [1, 2, 3]
+// 　
 // ----non set value---
 // ABC is String
 // 123 is Int

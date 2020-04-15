@@ -15,6 +15,7 @@ fun main() {
     // 大文字+スペース除去
     println("----String.toUpperSpaceLess----")
     println("Hello, world!!!".toUpperSpaceLess())
+    println("　")
 
     // 大文字+スペース除去(null許容)
     println("----String.toUpperSpaceLess----")
@@ -26,6 +27,7 @@ fun main() {
 // 出力：
 // ----String.toUpperSpaceLess----
 // HELLO,WORLD!!!
+// 　
 // ----String.toUpperSpaceLess----
 // HELLO,WORLD!!!
 // null!!

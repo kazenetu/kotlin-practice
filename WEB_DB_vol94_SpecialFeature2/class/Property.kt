@@ -76,25 +76,30 @@ fun main() {
     val prop = PropertyTestClass(20)
     println(prop.ageString)
     println(prop.ageStringFixed)
+    println("　")
 
     println("----update prop.age---")
     prop.age = 30
     println(prop.ageString)
     println(prop.ageStringFixed)
+    println("　")
 
     // プロパティ宣言と初期化を同時に実行
     println("----InitializeProperty---")
     val initProp = InitializeProperty(20)
     println(initProp.ageString)
+    println("　")
 
     println("----update initProp.age---")
     initProp.age = 30
     println(initProp.ageString)
+    println("　")
 
     // パラメータでプロパティ定義
     println("----ParamPropertyClass---")
     val paramProp = ParamPropertyClass(20)
     println(paramProp.ageString)
+    println("　")
 
     println("----update paramProp.age---")
     paramProp.age = 30
@@ -107,16 +112,21 @@ fun main() {
 // >> return 20
 // age is 20
 // age is 20
+// 　
 // ----update prop.age---
 // >> set 30
 // >> return 30
 // age is 30
 // age is 20
+// 　
 // ----InitializeProperty---
 // age is 20
+// 　
 // ----update initProp.age---
 // age is 30
+// 　
 // ----ParamPropertyClass---
 // age is 20
+// 　
 // ----update paramProp.age---
 // age is 30

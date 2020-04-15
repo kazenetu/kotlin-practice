@@ -38,6 +38,7 @@ fun main() {
     })
     // TestClassAのプロパティのスコープがpublicのため、外部から呼び出し可能
     testA.callback.onCallbask("aaa")
+    println("　")
 
     // テストクラスBを呼び出し
     println("----Call TestClassB---")
@@ -54,5 +55,6 @@ fun main() {
 // ----Call TestClassA---
 // onCallbask is TestA
 // onCallbask is aaa
+// 　
 // ----Call TestClassB---
 // onCallbask is TestB

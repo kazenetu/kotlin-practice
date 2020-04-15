@@ -107,12 +107,14 @@ fun main() {
     val innerClass = Container().Inner()
     println("innerClass.getContainerId():${innerClass.getContainerId()}")
     println("innerClass.getId():${innerClass.getId()}")
+    println("　")
 
     // 内部クラスは非公開とし、内包クラスインスタンスを経由してメソッド呼び出し
     println("----private InnerClass---")
     val containerProperty = ContainerProperty()
     println("containerProperty.getContainerId():${containerProperty.getContainerId()}")
     println("containerProperty.getId():${containerProperty.getId()}")
+    println("　")
 
     // 内部クラスは非公開とし、内包クラスインスタンスを経由してメソッド呼び出し：内部クラスの多段タイプ
     println("----Nested InnerClass---")
@@ -125,9 +127,11 @@ fun main() {
 // ----InnerClass---
 // innerClass.getContainerId():1
 // innerClass.getId():10
+// 　
 // ----private InnerClass---
 // containerProperty.getContainerId():1
 // containerProperty.getId():10
+// 　
 // ----Nested InnerClass---
 // container2LevelNest.getContainerId():1
 // container2LevelNest.getId():10

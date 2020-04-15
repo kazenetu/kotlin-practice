@@ -122,6 +122,7 @@ fun main() {
     println("changed genericsClassCopy.item! genericsClass.item:${genericsClass.item}")
     println("genericsClassCopy == genericsClass: ${genericsClassCopy == genericsClass}")
     println("genericsClassCreate == genericsClass: ${genericsClassCreate == genericsClass}")
+    println("　")
 
     // Stringを指定
     println("----GenericsClass<String>---")
@@ -135,11 +136,13 @@ fun main() {
     println("changed genericsClassCopy.item! genericsClassString.item:${genericsClassString.item}")
     println("genericsClassCopyString == genericsClassString: ${genericsClassCopyString == genericsClassString}")
     println("genericsClassCreateString == genericsClassString: ${genericsClassCreateString == genericsClassString}")
+    println("　")
 
     // インターフェイスを上限制約：Stringを指定
     println("----GenericsClassParam---")
     val genericsClassParam = GenericsClassParam(ParamClass("AAA"))
     println("genericsClassParam.text:${genericsClassParam.getText()}")
+    println("　")
 
     // 複数の上限制約
     println("----GenericsClassWhere---")
@@ -147,6 +150,7 @@ fun main() {
     println("genericsClassWhere.text:${genericsClassWhere.getText()}")
     val genericsClassWhereString = GenericsClassWhere(StringClass("ABC"))
     println("genericsClassWhereString.text:${genericsClassWhereString.getText()}")
+    println("　")
 
     // 型名と値の取得
     println("----GenericsTypeNameClass---")
@@ -164,6 +168,7 @@ fun main() {
 // changed genericsClassCopy.item! genericsClass.item:10
 // genericsClassCopy == genericsClass: false
 // genericsClassCreate == genericsClass: false
+// 　
 // ----GenericsClass<String>---
 // genericsClassString.item:ABC
 // genericsClassCopyString.item:ABC
@@ -171,11 +176,14 @@ fun main() {
 // changed genericsClassCopy.item! genericsClassString.item:ABC
 // genericsClassCopyString == genericsClassString: false
 // genericsClassCreateString == genericsClassString: false
+// 　
 // ----GenericsClassParam---
 // genericsClassParam.text:AAA
+// 　
 // ----GenericsClassWhere---
 // genericsClassWhere.text:Int:10
 // genericsClassWhereString.text:String:ABC
+// 　
 // ----GenericsTypeNameClass---
 // Int:123
 // String:123

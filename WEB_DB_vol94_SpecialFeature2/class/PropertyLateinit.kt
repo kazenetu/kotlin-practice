@@ -35,6 +35,7 @@ fun main() {
     val prop = LateinitPropertyClass()
     prop.init()
     println(prop.dataClass.id)
+    println("　")
 
     // 初期化しない状態でdataClass.id呼び出し
     println("---- LateinitPropertyClass:not initialize---")
@@ -50,5 +51,6 @@ fun main() {
 // 出力：
 // ---- LateinitPropertyClass---
 // 10
+// 　
 // ---- LateinitPropertyClass:not initialize---
 // kotlin.UninitializedPropertyAccessException: lateinit property dataClass has not been initialized
