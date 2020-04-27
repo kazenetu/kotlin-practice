@@ -36,3 +36,8 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Dispatchers and threads---
+// Unconfined            : I'm working in thread main @coroutine#3
+// Default               : I'm working in thread DefaultDispatcher-worker-1 @coroutine#4
+// newSingleThreadContext: I'm working in thread MyOwnThread @coroutine#5
+// main runBlocking      : I'm working in thread main @coroutine#2
