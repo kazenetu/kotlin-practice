@@ -7,8 +7,8 @@ import kotlinx.coroutines.*
  * （主な要素はコルーチンのジョブとそのディスパッチャー）
  * コルーチンコンテキストには、対応するコルーチンがその実行に使用するスレッドを決定するコルーチンディスパッチャーが含まれている。
  */
-fun main() = runBlocking {
-
+fun main() = runBlocking<Unit> {
+    
     println("---Dispatchers and threads---")
 
     // 指定なし：runBlockingで実行されるメインコルーチンのコンテキストを継承
