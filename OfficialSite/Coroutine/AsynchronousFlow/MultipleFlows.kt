@@ -15,7 +15,7 @@ fun foo(): Sequence<Int> = sequence { // シーケンスビルダー
 /*
  * コルーチン：非同期フロー：複数フロー作成方法
  */
-fun main() {
+fun main() = runBlocking<Unit> {
 
     // 複数フローの作成方法
     println("---Composing multiple flows---")
@@ -42,3 +42,15 @@ fun main() {
 }
 
 // 出力：
+// ---Composing multiple flows---
+// > Zip
+// 1 -> one
+// 2 -> two
+// 3 -> three
+// 　
+// > Combine
+// 1 -> one at 428 ms from start
+// 2 -> one at 625 ms from start
+// 2 -> two at 842 ms from start
+// 3 -> two at 926 ms from start
+// 3 -> three at 1252 ms from start
