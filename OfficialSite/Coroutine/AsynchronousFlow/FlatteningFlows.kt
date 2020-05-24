@@ -11,7 +11,7 @@ fun requestFlow(i: Int): Flow<String> = flow {
 /*
  * コルーチン：非同期フロー：フローの平坦化
  */
-fun main() {
+fun main() = runBlocking<Unit> {
 
     // フローの平坦化
     println("---Flattening flows---")
