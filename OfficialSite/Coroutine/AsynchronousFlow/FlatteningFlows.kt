@@ -50,3 +50,25 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Flattening flows---
+// > flatMapConcat
+// 1: First at 150 ms from start
+// 1: Second at 651 ms from start
+// 2: First at 752 ms from start
+// 2: Second at 1255 ms from start
+// 3: First at 1357 ms from start
+// 3: Second at 1859 ms from start
+// 　
+// > flatMapMerge
+// 1: First at 125 ms from start
+// 2: First at 225 ms from start
+// 3: First at 327 ms from start
+// 1: Second at 627 ms from start
+// 2: Second at 727 ms from start
+// 3: Second at 829 ms from start
+// 　
+// > flatMapLatest
+// 1: First at 107 ms from start
+// 2: First at 277 ms from start
+// 3: First at 378 ms from start
+// 3: Second at 879 ms from start
