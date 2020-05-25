@@ -36,3 +36,8 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Everything is caught---
+// Emitting 1
+// string 1
+// Emitting 2
+// Caught java.lang.IllegalStateException: Crashed on 2
