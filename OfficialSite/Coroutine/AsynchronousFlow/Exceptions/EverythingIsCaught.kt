@@ -34,3 +34,9 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Collector try and catch---
+// Emitting 1
+// 1
+// Emitting 2
+// 2
+// Caught java.lang.IllegalStateException: Collected 2
