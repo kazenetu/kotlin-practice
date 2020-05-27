@@ -60,3 +60,21 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Exception transparency---
+// > After catch operator:map
+// Emitting 1
+// string 1
+// Emitting 2
+// Caught java.lang.IllegalStateException: Crashed on 2
+// 　
+// > After catch operator:onEach
+// Emitting 1
+// string 1
+// Emitting 2
+// Caught java.lang.IllegalStateException: Crashed on 2
+// 　
+// > Before catch operator
+// Emitting 1
+// string 1
+// Emitting 2
+// Exception in thread "main" java.lang.IllegalStateException: Crashed on 2
