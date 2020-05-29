@@ -38,3 +38,15 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Launching flow---
+// > onEach operator
+// Event: 1
+// Event: 2
+// Event: 3
+// Done
+// 　
+// > launchIn terminal operator
+// Done
+// Event: 1
+// Event: 2
+// Event: 3
