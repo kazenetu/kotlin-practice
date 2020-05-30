@@ -27,3 +27,10 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Channel basics---
+// 1
+// 4
+// 9
+// 16
+// 25
+// Done!
