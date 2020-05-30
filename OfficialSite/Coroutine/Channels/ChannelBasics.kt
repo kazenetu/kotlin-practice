@@ -1,5 +1,6 @@
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.channels.*
 
 // Imitate a flow of events
 fun events(): Flow<Int> = (1..3).asFlow().onEach { delay(100) }
