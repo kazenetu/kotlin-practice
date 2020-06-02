@@ -25,3 +25,10 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Building channel producers---
+// 1
+// 4
+// 9
+// 16
+// 25
+// Done!
