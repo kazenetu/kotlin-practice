@@ -65,3 +65,23 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Building channel producers---
+// 1
+// 4
+// 9
+// 16
+// 25
+// Done!
+// 　
+// ---Pipelines: filter---
+// 2
+// 3
+// 5
+// 7
+// 11
+// 13
+// 17
+// 19
+// 23
+// 29
+// Done!
