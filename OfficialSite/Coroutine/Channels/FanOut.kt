@@ -39,3 +39,14 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Fan-out---
+// Processor #0 received 1
+// Processor #0 received 2
+// Processor #1 received 3
+// Processor #2 received 4
+// Processor #3 received 5
+// Processor #4 received 6
+// Processor #0 received 7
+// Processor #1 received 8
+// Processor #2 received 9
+// Processor #3 received 10
