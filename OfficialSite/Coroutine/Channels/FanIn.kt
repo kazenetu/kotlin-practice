@@ -32,3 +32,10 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Fan-in---
+// foo
+// foo
+// BAR!
+// foo
+// foo
+// foo
