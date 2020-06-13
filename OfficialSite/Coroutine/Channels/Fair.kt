@@ -43,3 +43,8 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Channels are fair---
+// ping Ball(hits=1)
+// pong Ball(hits=2)
+// ping Ball(hits=3)
+// pong Ball(hits=4)
