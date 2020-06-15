@@ -41,3 +41,9 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Buffered channels---
+// Sending 0
+// Sending 1
+// Sending 2
+// Sending 3
+// Sending 4
