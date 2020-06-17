@@ -43,3 +43,10 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Ticker channels---
+// Initial element is available immediately: kotlin.Unit
+// Next element is not ready in 50 ms: null
+// Next element is ready in 100 ms: kotlin.Unit
+// Consumer pauses for 150ms
+// Next element is available immediately after large consumer delay: kotlin.Unit
+// Next element is ready in 50ms after consumer pause in 150ms: kotlin.Unit
