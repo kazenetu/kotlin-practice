@@ -37,3 +37,15 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Exception Handling---
+// Throwing exception from launch
+// Exception in thread "DefaultDispatcher-worker-1" java.lang.IndexOutOfBoundsException
+//         at SampleKt$main$1$job$1.invokeSuspend(Sample.kt:16)
+//         at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+//         at kotlinx.coroutines.DispatchedTask.run(Dispatched.kt:238)
+//         at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:594)
+//         at kotlinx.coroutines.scheduling.CoroutineScheduler.access$runSafely(CoroutineScheduler.kt:60)
+//         at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:742)
+// Joined failed job
+// Throwing exception from async
+// Caught ArithmeticException
