@@ -28,3 +28,5 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---CoroutineExceptionHandler---
+// CoroutineExceptionHandler got java.lang.AssertionError
