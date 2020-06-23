@@ -69,3 +69,14 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Cancellation and exceptions---
+// >> Cancellation
+// Cancelling child
+// Child is cancelled
+// Parent is not cancelled
+// 　
+// >> Cancellation exceptions
+// Second child throws an exception
+// Children are cancelled, but exception is not handled until all children terminate
+// The first child finished its non cancellable block
+// CoroutineExceptionHandler got java.lang.ArithmeticException
