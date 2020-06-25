@@ -68,3 +68,9 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// >> Exceptions aggregation
+// CoroutineExceptionHandler got java.io.IOException with suppressed [java.lang.ArithmeticException]
+// 　
+// >> CancellationException
+// Rethrowing CancellationException with original cause
+// CoroutineExceptionHandler got java.io.IOException
