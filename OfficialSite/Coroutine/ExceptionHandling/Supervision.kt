@@ -45,3 +45,9 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Supervision ---
+// >> Supervision job
+// First child is failing
+// First child is cancelled: true, but second one is still active
+// Cancelling supervisor
+// Second child is cancelled because supervisor is cancelled
