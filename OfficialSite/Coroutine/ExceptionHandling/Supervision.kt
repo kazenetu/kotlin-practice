@@ -42,6 +42,27 @@ fun main() = runBlocking<Unit> {
     }
     println("　")
 
+    // supervisorScopeを使うことによって例外の範囲監視が行える
+    println(">> Supervision scope")
+
+    try {
+        supervisorScope {
+            val child = launch {
+                try {
+                    println("Child is sleeping")
+                    delay(Long.MAX_VALUE)
+                } finally {
+                    println("Child is cancelled")
+                }
+            }
+            // 子コルーチンの実行を実施
+            yield()
+            println("Throwing exception from scope")
+            throw AssertionError()
+        }
+    } catch(e: AssertionError) {
+        println("Caught assertion error")
+    }
 }
 
 // 出力：
