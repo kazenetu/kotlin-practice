@@ -72,3 +72,9 @@ fun main() = runBlocking<Unit> {
 // First child is cancelled: true, but second one is still active
 // Cancelling supervisor
 // Second child is cancelled because supervisor is cancelled
+// 　
+// >> Supervision scope
+// Child is sleeping
+// Throwing exception from scope
+// Child is cancelled
+// Caught assertion error
