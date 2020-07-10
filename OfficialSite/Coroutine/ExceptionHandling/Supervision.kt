@@ -63,6 +63,27 @@ fun main() = runBlocking<Unit> {
     } catch(e: AssertionError) {
         println("Caught assertion error")
     }
+
+    println("　")
+
+    // supervisorScope：監視ありコルーチンの例外
+    // 通常のジョブとスーパーバイザージョブのもう1つの重要な違いは、例外処理である。
+    // すべての子は、例外処理メカニズムを介して自分で例外を処理する必要がある。
+    // この違いは、子供の失敗が親に伝播されないという事実に由来する。
+    println(">> Exceptions in supervised coroutines")
+
+    val handler = CoroutineExceptionHandler { _, exception -> 
+        println("CoroutineExceptionHandler got $exception") 
+    }
+    supervisorScope {
+        val child = launch(handler) {
+            println("Child throws an exception")
+            throw AssertionError()
+        }
+        println("Scope is completing")
+    }
+    println("Scope is completed")
+
 }
 
 // 出力：
