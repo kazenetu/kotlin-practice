@@ -99,3 +99,9 @@ fun main() = runBlocking<Unit> {
 // Throwing exception from scope
 // Child is cancelled
 // Caught assertion error
+// 　
+// >> Exceptions in supervised coroutines
+// Scope is completing
+// Child throws an exception
+// CoroutineExceptionHandler got java.lang.AssertionError
+// Scope is completed
