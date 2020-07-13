@@ -45,3 +45,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---The problem---
+// Completed 100000 actions in 14 ms
+// Counter = 70790
