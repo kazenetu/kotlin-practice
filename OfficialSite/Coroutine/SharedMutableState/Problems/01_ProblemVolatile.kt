@@ -47,3 +47,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Volatiles are of no help---
+// Completed 100000 actions in 19 ms
+// Counter = 86238
