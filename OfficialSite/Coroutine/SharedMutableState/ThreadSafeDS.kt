@@ -51,3 +51,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Thread-safe data structures---
+// Completed 100000 actions in 24 ms
+// Counter = 100000
