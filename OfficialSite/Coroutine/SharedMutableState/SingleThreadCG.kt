@@ -48,3 +48,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Thread confinement coarse-grained---
+// Completed 100000 actions in 23 ms
+// Counter = 100000
