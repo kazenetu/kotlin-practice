@@ -52,3 +52,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Mutual exclusion---
+// Completed 100000 actions in 180 ms
+// Counter = 100000
