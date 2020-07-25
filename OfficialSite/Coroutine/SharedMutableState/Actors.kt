@@ -88,3 +88,6 @@ fun main() = runBlocking<Unit> {
 }
 
 // 出力：
+// ---Actors---
+// Completed 100000 actions in 386 ms
+// Counter = 100000
